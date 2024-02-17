@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silvia Ruzanka: Botanical Computing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <input checked data-global-option hidden id='global-option-always-on-top' type='checkbox'>
+    <input data-global-option hidden id='global-option-auto-hide' type='checkbox'>
+    <input data-global-option hidden id='global-option-show-small-icons' type='checkbox'>
+    <input data-name='computer' data-window-trigger hidden id='computer' type='checkbox'>
+    <input data-minimize data-name='computer' hidden id='computer-minimize' type='checkbox'>
+    <input data-maximize data-name='computer' hidden id='computer-maximize' type='checkbox'>
+    <input data-name='dreams' data-window-trigger hidden id='dreams' type='checkbox'>
+    <input data-minimize data-name='dreams' hidden id='dreams-minimize' type='checkbox'>
+    <input data-maximize data-name='dreams' hidden id='dreams-maximize' type='checkbox'>
+    <input data-name='artist-interview' data-window-trigger hidden id='artist-interview' type='checkbox'>
+    <input data-minimize data-name='artist-interview' hidden id='artist-interview-minimize' type='checkbox'>
+    <input data-maximize data-name='artist-interview' hidden id='artist-interview-maximize' type='checkbox'>
+    <input data-name='curatorial-statement' data-window-trigger hidden id='curatorial-statement' type='checkbox'>
+    <input data-minimize data-name='curatorial-statement' hidden id='curatorial-statement-minimize' type='checkbox'>
+    <input data-maximize data-name='curatorial-statement' hidden id='curatorial-statement-maximize' type='checkbox'>
+    <input data-name='recycle-bin' data-window-trigger hidden id='recycle-bin' type='checkbox'>
+    <input data-minimize data-name='recycle-bin' hidden id='recycle-bin-minimize' type='checkbox'>
+    <input data-maximize data-name='recycle-bin' hidden id='recycle-bin-maximize' type='checkbox'>
+    <input data-error-trigger data-name='critical' hidden id='error-critical' type='checkbox'>
+    <main>
+        <div id='desktop'>
+            <div id='icons'>
+                <label class='desktop-icon label-computer' for='computer' tabindex='0'>
+                    <span>Silvia Ruzanka: <br>Botanical Computing</span>
+                </label>
+                <label class='desktop-icon label-recycle-bin' for='recycle-bin' tabindex='0'>
+                    <span>Recycle Bin</span>
+                </label>
+            </div>
+            <div id='windows'>
+                <div class='window window-default' data-window id='window-computer'>
+                    <div class='window-inside'>
+                        <nav class='window-nav'>
+                            <h2 class='label-disk-small'>
+                                <span>Silvia Ruzanka: Botanical Computing</span>
+                            </h2>
+                            <div class='buttons'>
+                                <label class='minimize' for='computer-minimize' tabindex='0'></label>
+                                <label class='maximize' for='computer-maximize' tabindex='0'></label>
+                                <label class='close' for='computer' tabindex='0'></label>
+                            </div>
+                        </nav>
+
+                        <div class='window-content'>
+                            <div class='list-container above-footer'>
+                                <menu class='list'>
+                                    <li>
+                                        <label class='desktop-icon label-computer' for='dreams' tabindex='0'>
+                                            <span>Dreams</span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class='desktop-icon label-face' for='artist-interview' tabindex='0'>
+                                            <span>Artist <br>Interview</span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class='desktop-icon label-text' for='curatorial-statement' tabindex='0'>
+                                            <span>Curatorial <br>Statement</span>
+                                        </label>
+                                    </li>
+                                </menu>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='window window-default' data-window id='window-dreams'>
+                    <div class='window-inside'>
+                        <nav class='window-nav'>
+                            <h2 class='label-dreams-small'>
+                                <span>Dreams</span>
+                            </h2>
+                            <div class='buttons'>
+                                <label class='minimize' for='dreams-minimize' tabindex='0'></label>
+                                <label class='maximize' for='dreams-maximize' tabindex='0'></label>
+                                <label class='close' for='dreams' tabindex='0'></label>
+                            </div>
+                        </nav>
+
+                        <div class='window-content'>
+                            <div class='list-container above-footer'>
+                                <menu class='list'>
+                                    <li>
+                                        <label class='desktop-icon label-asset' for='dream-1' tabindex='0'>
+                                            <span>Growth Study</span>
+                                        </label>
+                                    </li>
+                                </menu>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='window window-default' data-window id='window-recycle-bin'>
+                    <div class='window-inside'>
+                        <nav class='window-nav'>
+                            <h2 class='label-recycle-bin-small'>
+                                <span>Recycle Bin</span>
+                            </h2>
+                            <div class='buttons'>
+                                <label class='minimize' for='recycle-bin-minimize' tabindex='0'></label>
+                                <label class='maximize' for='recycle-bin-maximize' tabindex='0'></label>
+                                <label class='close' for='recycle-bin' tabindex='0'></label>
+                            </div>
+                        </nav>
+
+                        <div class='window-content'>
+                            <div class='list-container above-footer'>
+                                <menu class='list'>
+                                    <li>
+                                        <label class='desktop-icon label-asset' for='draft-1' tabindex='0'>
+                                            <span>draft_1</span>
+                                        </label>
+                                    </li>
+                                </menu>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='window window-text' data-window id='window-artist-interview'>
+                    <div class='window-inside'>
+                        <nav class='window-nav'>
+                            <h2 class='label-artist-interview-small'>
+                                <span>Artist Interview</span>
+                            </h2>
+                            <div class='buttons'>
+                                <label class='minimize' for='artist-interview-minimize' tabindex='0'></label>
+                                <label class='maximize' for='artist-interview-maximize' tabindex='0'></label>
+                                <label class='close' for='artist-interview' tabindex='0'></label>
+                            </div>
+                        </nav>
+                        <div class='window-content'>
+                            <div class='text-container above-footer'>
+                                <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Mi eget mauris pharetra et. Nibh
+                                        tortor
+                                        id aliquet lectus proin nibh. Rhoncus dolor purus non enim praesent elementum
+                                        facilisis leo vel. Est velit egestas dui id ornare. Vitae purus faucibus ornare
+                                        suspendisse. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis
+                                        feugiat. Ut tortor pretium viverra suspendisse. Cras semper auctor neque vitae
+                                        tempus. Placerat duis ultricies lacus sed turpis tincidunt id. Vulputate enim
+                                        nulla
+                                        aliquet porttitor lacus luctus accumsan tortor.</p>
+                                    <p>Ipsum consequat nisl vel pretium lectus. Eleifend quam adipiscing vitae proin
+                                        sagittis nisl rhoncus mattis rhoncus. Nulla facilisi etiam dignissim diam quis
+                                        enim
+                                        lobortis scelerisque fermentum. Vitae suscipit tellus mauris a diam. Dolor sit
+                                        amet
+                                        consectetur adipiscing elit duis. Accumsan tortor posuere ac ut. Id eu nisl nunc
+                                        mi
+                                        ipsum. Gravida quis blandit turpis cursus in hac habitasse. Ultricies leo
+                                        integer
+                                        malesuada nunc. Ac tincidunt vitae semper quis lectus. Faucibus scelerisque
+                                        eleifend
+                                        donec pretium vulputate sapien nec sagittis aliquam. Leo urna molestie at
+                                        elementum
+                                        eu facilisis sed. Vulputate enim nulla aliquet porttitor. Aliquam nulla facilisi
+                                        cras fermentum odio eu feugiat pretium. Elit sed vulputate mi sit amet.</p>
+                                    <p>Nunc congue nisi vitae suscipit. Egestas pretium aenean pharetra magna ac
+                                        placerat.
+                                        Blandit libero volutpat sed cras ornare arcu dui. Sed euismod nisi porta lorem
+                                        mollis. Sed arcu non odio euismod lacinia at. A condimentum vitae sapien
+                                        pellentesque habitant morbi tristique senectus. Id volutpat lacus laoreet non
+                                        curabitur gravida. Vel turpis nunc eget lorem. In nibh mauris cursus mattis
+                                        molestie
+                                        a iaculis at erat. Sit amet mattis vulputate enim nulla. Congue mauris rhoncus
+                                        aenean vel elit scelerisque mauris pellentesque pulvinar.</p>
+                                    <p>Orci nulla pellentesque dignissim enim sit amet venenatis. Dictum sit amet justo
+                                        donec enim. Quis ipsum suspendisse ultrices gravida dictum. Vitae nunc sed velit
+                                        dignissim sodales ut eu sem. At in tellus integer feugiat scelerisque varius
+                                        morbi
+                                        enim nunc. Semper feugiat nibh sed pulvinar proin gravida hendrerit lectus.
+                                        Tempor
+                                        id eu nisl nunc. Fames ac turpis egestas integer eget aliquet. Orci ac auctor
+                                        augue
+                                        mauris augue. Eros donec ac odio tempor. Mauris vitae ultricies leo integer.</p>
+                                    <p>Convallis aenean et tortor at risus viverra adipiscing at in. Nullam ac tortor
+                                        vitae
+                                        purus faucibus ornare suspendisse sed. Nunc pulvinar sapien et ligula
+                                        ullamcorper
+                                        malesuada proin libero nunc. Turpis in eu mi bibendum neque egestas congue
+                                        quisque.
+                                        Sit amet mattis vulputate enim nulla aliquet porttitor. Mattis molestie a
+                                        iaculis at
+                                        erat. Mauris a diam maecenas sed enim ut sem. Libero nunc consequat interdum
+                                        varius
+                                        sit. Vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor.
+                                        Tincidunt
+                                        arcu non sodales neque sodales ut etiam sit amet. Justo laoreet sit amet cursus
+                                        sit
+                                        amet dictum.</p>
+                                    <p>Quis lectus nulla at volutpat diam ut venenatis tellus. Elit ut aliquam purus
+                                        sit.
+                                        Dolor sit amet consectetur adipiscing elit duis. Dolor sed viverra ipsum nunc
+                                        aliquet bibendum. Quis blandit turpis cursus in hac habitasse. Ultrices mi
+                                        tempus
+                                        imperdiet nulla malesuada pellentesque elit eget. Ultrices neque ornare aenean
+                                        euismod elementum nisi quis eleifend. Volutpat sed cras ornare arcu dui. Id
+                                        volutpat
+                                        lacus laoreet non. Sem et tortor consequat id porta nibh venenatis. Fusce ut
+                                        placerat orci nulla pellentesque dignissim enim sit. Consectetur purus ut
+                                        faucibus
+                                        pulvinar elementum integer enim. Laoreet suspendisse interdum consectetur
+                                        libero.
+                                        Placerat in egestas erat imperdiet sed euismod nisi.</p>
+                                    <p>Blandit aliquam etiam erat velit scelerisque in. Pharetra pharetra massa massa
+                                        ultricies mi quis hendrerit. Eu consequat ac felis donec et. Mauris pharetra et
+                                        ultrices neque ornare aenean euismod elementum nisi. Ac turpis egestas sed
+                                        tempus
+                                        urna et pharetra pharetra massa. Aliquam id diam maecenas ultricies mi. Sed
+                                        elementum tempus egestas sed sed risus. Euismod quis viverra nibh cras pulvinar
+                                        mattis. Gravida quis blandit turpis cursus in hac habitasse platea dictumst.
+                                        Libero
+                                        id faucibus nisl tincidunt eget nullam. Porttitor lacus luctus accumsan tortor.
+                                        Lorem sed risus ultricies tristique. Egestas egestas fringilla phasellus
+                                        faucibus
+                                        scelerisque. Luctus venenatis lectus magna fringilla. Sed turpis tincidunt id
+                                        aliquet. At risus viverra adipiscing at in tellus. Integer enim neque volutpat
+                                        ac
+                                        tincidunt vitae semper quis lectus. Nunc scelerisque viverra mauris in aliquam.
+                                        In
+                                        nibh mauris cursus mattis molestie a iaculis at. Bibendum est ultricies integer
+                                        quis
+                                        auctor elit.</p>
+                                    <p>Felis bibendum ut tristique et egestas quis. Dolor purus non enim praesent
+                                        elementum.
+                                        Tincidunt lobortis feugiat vivamus at. Pellentesque diam volutpat commodo sed
+                                        egestas egestas. Vitae congue mauris rhoncus aenean vel elit scelerisque.
+                                        Pharetra
+                                        et ultrices neque ornare aenean euismod elementum nisi. Vitae elementum
+                                        curabitur
+                                        vitae nunc sed velit dignissim sodales ut. Hac habitasse platea dictumst quisque
+                                        sagittis purus sit. Sapien et ligula ullamcorper malesuada. Diam maecenas
+                                        ultricies
+                                        mi eget mauris pharetra et. Velit laoreet id donec ultrices. Faucibus vitae
+                                        aliquet
+                                        nec ullamcorper sit amet risus nullam eget. Neque convallis a cras semper
+                                        auctor.
+                                        Enim ut tellus elementum sagittis vitae. Lacus viverra vitae congue eu
+                                        consequat.
+                                        Risus nec feugiat in fermentum posuere urna nec tincidunt. Vel fringilla est
+                                        ullamcorper eget nulla facilisi.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='window window-text' data-window id='window-curatorial-statement'>
+                    <div class='window-inside'>
+                        <nav class='window-nav'>
+                            <h2 class='label-curatorial-statement-small'>
+                                <span>Curatorial Statement</span>
+                            </h2>
+                            <div class='buttons'>
+                                <label class='minimize' for='curatorial-statement-minimize' tabindex='0'></label>
+                                <label class='maximize' for='curatorial-statement-maximize' tabindex='0'></label>
+                                <label class='close' for='curatorial-statement' tabindex='0'></label>
+                            </div>
+                        </nav>
+                        <div class='window-content'>
+                            <div class='text-container above-footer'>
+                                <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Mi eget mauris pharetra et. Nibh
+                                        tortor
+                                        id aliquet lectus proin nibh. Rhoncus dolor purus non enim praesent elementum
+                                        facilisis leo vel. Est velit egestas dui id ornare. Vitae purus faucibus ornare
+                                        suspendisse. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis
+                                        feugiat. Ut tortor pretium viverra suspendisse. Cras semper auctor neque vitae
+                                        tempus. Placerat duis ultricies lacus sed turpis tincidunt id. Vulputate enim
+                                        nulla
+                                        aliquet porttitor lacus luctus accumsan tortor.</p>
+                                    <p>Ipsum consequat nisl vel pretium lectus. Eleifend quam adipiscing vitae proin
+                                        sagittis nisl rhoncus mattis rhoncus. Nulla facilisi etiam dignissim diam quis
+                                        enim
+                                        lobortis scelerisque fermentum. Vitae suscipit tellus mauris a diam. Dolor sit
+                                        amet
+                                        consectetur adipiscing elit duis. Accumsan tortor posuere ac ut. Id eu nisl nunc
+                                        mi
+                                        ipsum. Gravida quis blandit turpis cursus in hac habitasse. Ultricies leo
+                                        integer
+                                        malesuada nunc. Ac tincidunt vitae semper quis lectus. Faucibus scelerisque
+                                        eleifend
+                                        donec pretium vulputate sapien nec sagittis aliquam. Leo urna molestie at
+                                        elementum
+                                        eu facilisis sed. Vulputate enim nulla aliquet porttitor. Aliquam nulla facilisi
+                                        cras fermentum odio eu feugiat pretium. Elit sed vulputate mi sit amet.</p>
+                                    <p>Nunc congue nisi vitae suscipit. Egestas pretium aenean pharetra magna ac
+                                        placerat.
+                                        Blandit libero volutpat sed cras ornare arcu dui. Sed euismod nisi porta lorem
+                                        mollis. Sed arcu non odio euismod lacinia at. A condimentum vitae sapien
+                                        pellentesque habitant morbi tristique senectus. Id volutpat lacus laoreet non
+                                        curabitur gravida. Vel turpis nunc eget lorem. In nibh mauris cursus mattis
+                                        molestie
+                                        a iaculis at erat. Sit amet mattis vulputate enim nulla. Congue mauris rhoncus
+                                        aenean vel elit scelerisque mauris pellentesque pulvinar.</p>
+                                    <p>Orci nulla pellentesque dignissim enim sit amet venenatis. Dictum sit amet justo
+                                        donec enim. Quis ipsum suspendisse ultrices gravida dictum. Vitae nunc sed velit
+                                        dignissim sodales ut eu sem. At in tellus integer feugiat scelerisque varius
+                                        morbi
+                                        enim nunc. Semper feugiat nibh sed pulvinar proin gravida hendrerit lectus.
+                                        Tempor
+                                        id eu nisl nunc. Fames ac turpis egestas integer eget aliquet. Orci ac auctor
+                                        augue
+                                        mauris augue. Eros donec ac odio tempor. Mauris vitae ultricies leo integer.</p>
+                                    <p>Convallis aenean et tortor at risus viverra adipiscing at in. Nullam ac tortor
+                                        vitae
+                                        purus faucibus ornare suspendisse sed. Nunc pulvinar sapien et ligula
+                                        ullamcorper
+                                        malesuada proin libero nunc. Turpis in eu mi bibendum neque egestas congue
+                                        quisque.
+                                        Sit amet mattis vulputate enim nulla aliquet porttitor. Mattis molestie a
+                                        iaculis at
+                                        erat. Mauris a diam maecenas sed enim ut sem. Libero nunc consequat interdum
+                                        varius
+                                        sit. Vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor.
+                                        Tincidunt
+                                        arcu non sodales neque sodales ut etiam sit amet. Justo laoreet sit amet cursus
+                                        sit
+                                        amet dictum.</p>
+                                    <p>Quis lectus nulla at volutpat diam ut venenatis tellus. Elit ut aliquam purus
+                                        sit.
+                                        Dolor sit amet consectetur adipiscing elit duis. Dolor sed viverra ipsum nunc
+                                        aliquet bibendum. Quis blandit turpis cursus in hac habitasse. Ultrices mi
+                                        tempus
+                                        imperdiet nulla malesuada pellentesque elit eget. Ultrices neque ornare aenean
+                                        euismod elementum nisi quis eleifend. Volutpat sed cras ornare arcu dui. Id
+                                        volutpat
+                                        lacus laoreet non. Sem et tortor consequat id porta nibh venenatis. Fusce ut
+                                        placerat orci nulla pellentesque dignissim enim sit. Consectetur purus ut
+                                        faucibus
+                                        pulvinar elementum integer enim. Laoreet suspendisse interdum consectetur
+                                        libero.
+                                        Placerat in egestas erat imperdiet sed euismod nisi.</p>
+                                    <p>Blandit aliquam etiam erat velit scelerisque in. Pharetra pharetra massa massa
+                                        ultricies mi quis hendrerit. Eu consequat ac felis donec et. Mauris pharetra et
+                                        ultrices neque ornare aenean euismod elementum nisi. Ac turpis egestas sed
+                                        tempus
+                                        urna et pharetra pharetra massa. Aliquam id diam maecenas ultricies mi. Sed
+                                        elementum tempus egestas sed sed risus. Euismod quis viverra nibh cras pulvinar
+                                        mattis. Gravida quis blandit turpis cursus in hac habitasse platea dictumst.
+                                        Libero
+                                        id faucibus nisl tincidunt eget nullam. Porttitor lacus luctus accumsan tortor.
+                                        Lorem sed risus ultricies tristique. Egestas egestas fringilla phasellus
+                                        faucibus
+                                        scelerisque. Luctus venenatis lectus magna fringilla. Sed turpis tincidunt id
+                                        aliquet. At risus viverra adipiscing at in tellus. Integer enim neque volutpat
+                                        ac
+                                        tincidunt vitae semper quis lectus. Nunc scelerisque viverra mauris in aliquam.
+                                        In
+                                        nibh mauris cursus mattis molestie a iaculis at. Bibendum est ultricies integer
+                                        quis
+                                        auctor elit.</p>
+                                    <p>Felis bibendum ut tristique et egestas quis. Dolor purus non enim praesent
+                                        elementum.
+                                        Tincidunt lobortis feugiat vivamus at. Pellentesque diam volutpat commodo sed
+                                        egestas egestas. Vitae congue mauris rhoncus aenean vel elit scelerisque.
+                                        Pharetra
+                                        et ultrices neque ornare aenean euismod elementum nisi. Vitae elementum
+                                        curabitur
+                                        vitae nunc sed velit dignissim sodales ut. Hac habitasse platea dictumst quisque
+                                        sagittis purus sit. Sapien et ligula ullamcorper malesuada. Diam maecenas
+                                        ultricies
+                                        mi eget mauris pharetra et. Velit laoreet id donec ultrices. Faucibus vitae
+                                        aliquet
+                                        nec ullamcorper sit amet risus nullam eget. Neque convallis a cras semper
+                                        auctor.
+                                        Enim ut tellus elementum sagittis vitae. Lacus viverra vitae congue eu
+                                        consequat.
+                                        Risus nec feugiat in fermentum posuere urna nec tincidunt. Vel fringilla est
+                                        ullamcorper eget nulla facilisi.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='start-menu-outline' id='start-menu-outline'></div>
+        <nav class='start-menu' id='start-menu'>
+            <a href="https://newmediartspace.info"><label class='label-start' for='start' tabindex='0'>Home</label></a>
+            <menu class='tabs'>
+                <li class='tab tab-computer' data-tab>
+                    <span class='activate'></span>
+                    <label class='label-disk-small' for='computer-minimize'>
+                        <span>Silvia Ruzanka: Botanical Computing</span>
+                    </label>
+                </li>
+                <li class='tab tab-dreams' data-tab>
+                    <span class='activate'></span>
+                    <label class='label-dreams-small' for='dreams-minimize'>
+                        <span>Dreams</span>
+                    </label>
+                </li>
+                <li class='tab tab-artist-interview' data-tab>
+                    <span class='activate'></span>
+                    <label class='label-artist-interview-small' for='artist-interview-minimize'>
+                        <span>Artist Interview</span>
+                    </label>
+                </li>
+                <li class='tab tab-curatorial-statement' data-tab>
+                    <span class='activate'></span>
+                    <label class='label-curatorial-statement-small' for='curatorial-statement-minimize'>
+                        <span>Curatorial Statement</span>
+                    </label>
+                </li>
+                <li class='tab tab-recycle-bin' data-tab>
+                    <span class='activate'></span>
+                    <label class='label-recycle-bin-small' for='recycle-bin-minimize'>
+                        <span>Recycle Bin</span>
+                    </label>
+                </li>
+            </menu>
+            <div class='time'>
+                <time class='clock'>12:00 AM</time>
+            </div>
+        </nav>
+        <div id='alerts'>
+            <div class='alert' data-window id='alert-critical'>
+                <div class='alert-inside'>
+                    <div class='alert-nav'>
+                        <h2>
+                            <span>System Error</span>
+                        </h2>
+                        <div class='buttons'>
+                            <label class='close' for='error-critical'></label>
+                        </div>
+                    </div>
+                    <div class='alert-content'>
+                        <p>Critical error</p>
+                    </div>
+                    <footer class='alert-footer'>
+                        <label class='button' for='error-critical' tabindex='0'>
+                            <span>Okay</span>
+                        </label>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/draggabilly@3/dist/draggabilly.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,3662 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'Dina';
+    src: url('/fonts/DinaRemaster-Regular.woff2') format('woff2'),
+        url('/fonts/DinaRemaster-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DinaBold';
+    src: url('/fonts/DinaRemaster-Bold.woff2') format('woff2'),
+        url('/fonts/DinaRemaster-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --white: white;
+    --black: black;
+    --highlight-color: #31fedc;
+    --text-main-color: black;
+    --text-secondary-color: #794100;
+    --text-tertiary-color: #02384f;
+    --bg-color: white;
+    --navbar-color: #1d613e;
+    --navbar-active-color: #0b763f;
+    --interface-color: #43c743;
+    --interface-color-light: #d3ba40;
+    --interface-color-lighter: #ecb286;
+    --interface-color-darker: #9c3f17;
+    --taskbar-height: 65px;
+}
+
+*,
+*:before,
+*:after {
+    cursor: default;
+    box-sizing: border-box;
+    -ms-interpolation-mode: nearest-neighbor;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: pixelated;
+    font-family: "DinaBold", monospace;
+    font-size: 18px;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 1px;
+}
+
+*:not(textarea, input) {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+*:focus {
+    outline: none;
+}
+
+::-moz-selection {
+    background: none;
+}
+
+::selection {
+    background: none;
+}
+
+body,
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-color);
+    background-image: linear-gradient(0deg, hsla(359, 98%, 22%, 0), hsla(0, 93%, 24%, 0.3), hsla(0, 93%, 24%, 0.6), hsla(0, 93%, 24%, 0.4)), url('images/silviakeyimage-2.png');
+    background-size: cover;
+    color: var(--text-main-color);
+    line-height: 1;
+    overflow: hidden;
+}
+
+p,
+.text,
+.text h2,
+.text h3,
+.text h4 {
+    font-family: "Asap", "Roboto", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+}
+
+[hidden] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+}
+
+menu,
+ul:not(.information ul),
+ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.underline>li>a:not(.no-line):first-letter,
+.underline>li>a:not(.no-line)>span:first-letter,
+.underline>li>a:not(.no-line) .line:first-letter,
+.underline>li>label:not(.no-line):first-letter,
+.underline>li>label:not(.no-line)>span:first-letter,
+.underline>li>label:not(.no-line) .line:first-letter {
+    text-decoration: underline;
+}
+
+.underline>li>a:not(.no-line)>span span:not(.line):first-letter,
+.underline>li>label:not(.no-line)>span span:not(.line):first-letter {
+    text-decoration: none;
+}
+
+.underline>li>a:not(.no-line) .line,
+.underline>li>label:not(.no-line) .line {
+    display: inline-block;
+}
+
+label:before,
+label:after,
+a:before,
+a:after {
+    content: "";
+    background-position: center center;
+    background-size: contain;
+}
+
+label[tabindex] span {
+    padding: 1px 2px;
+}
+
+label[tabindex] span span {
+    padding: 0;
+}
+
+.label-computer:before {
+    background-image: url("/icons/folder.png");
+    background-repeat: no-repeat;
+}
+
+.label-face:before {
+    background-image: url("/icons/face.png");
+    background-repeat: no-repeat;
+}
+
+.label-recycle-bin:before {
+    background-image: url("/icons/bin.png");
+    background-repeat: no-repeat;
+}
+
+.label-asset:before {
+    background-image: url("/icons/asset.png");
+    background-repeat: no-repeat;
+}
+
+.label-text:before {
+    background-image: url("/icons/text.png");
+    background-repeat: no-repeat;
+}
+
+.button {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--black), inset 1.5px 1.5px 0 0 var(--white), inset -3px -3px 0 0 var(--interface-color-light), inset 3px 3px 0 0 var(--interface-color);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: var(--interface-color);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: flex;
+    align-items: center;
+    border: 0;
+    padding-left: 6px;
+    padding-right: 6px;
+    width: 120px;
+    height: 36px;
+    background: none;
+    text-align: center;
+}
+
+.button.underline span:first-letter {
+    text-decoration: underline;
+}
+
+.button+.button {
+    margin-left: 10px;
+}
+
+.button>span {
+    display: block;
+    width: 100%;
+    line-height: 22px;
+    border: 1px dotted transparent;
+    padding: 0 !important;
+}
+
+@media (min-width: 500px) {
+    .button>span {
+        border-width: 1.5px;
+    }
+}
+
+.button[disabled] {
+    color: #a099a1;
+    pointer-events: none;
+}
+
+.button:not([disabled]):focus {
+    box-shadow: inset -3px -3px 0 0 var(--black), inset 1.5px 1.5px 0 0 var(--black), inset -4.5px -4.5px 0 0 var(--interface-color-light), inset 3px 3px 0 0 var(--white);
+    padding-bottom: 1.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: var(--interface-color);
+}
+
+.button:not([disabled]):active {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--black), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color-light), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: var(--interface-color);
+}
+
+.button:not([disabled]):focus span,
+.button:not([disabled]):active span {
+    border-color: var(--black);
+    color: var(--black);
+    background: none;
+}
+
+#desktop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - var(--taskbar-height));
+}
+
+#icons {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+    margin: 1em;
+    height: 100%;
+    gap: 1em;
+}
+
+.desktop-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    text-align: center;
+}
+
+.desktop-icon:before,
+.desktop-icon:after {
+    width: 6vw;
+    height: 4.5vw;
+    min-width: 40px;
+    min-height: 40px;
+}
+
+.label-recycle-bin:before,
+.label-recycle-bin:after,
+.label-face:before,
+.label-face:after {
+    width: 6vw;
+    height: 6vw;
+    min-width: 40px;
+    min-height: 40px;
+}
+
+.desktop-icon span {
+    padding: 1px;
+    border: 1.5px solid transparent;
+}
+
+.desktop-icon[tabindex]:active span,
+.desktop-icon[tabindex]:focus span {
+    background: var(--highlight-color);
+    background-color: transparent;
+    background-image: linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-size: 3px 3px;
+    background-position: 0 0, 1.5px 1.5px;
+    color: var(--text-tertiary-color);
+    border: 1px dotted #D1AE87;
+}
+
+.desktop-icon[tabindex]:active:before {}
+
+@media (min-width: 500px) {
+
+    .desktop-icon[tabindex]:active span,
+    .desktop-icon[tabindex]:focus span {
+        border-width: 1.5px;
+    }
+}
+
+#windows,
+#alerts {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% + var(--taskbar-height));
+    padding-bottom: var(--taskbar-height);
+}
+
+.window,
+.alert {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--black), inset 1.5px 1.5px 0 0 var(--white), inset -3px -3px 0 0 var(--interface-color-light), inset 3px 3px 0 0 var(--interface-color-lighter);
+    padding: 6px;
+    z-index: 4;
+    background: var(--interface-color);
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    z-index: -1;
+    background: var(--interface-color);
+}
+
+.window-inside,
+.alert-inside {
+    max-width: calc(100vw - 36px);
+    max-height: calc(100vh - var(--taskbar-height) - 12px);
+    min-width: 300px;
+    min-height: 200px;
+    overflow: hidden;
+    resize: both;
+}
+
+.window-inside::-webkit-resizer,
+.alert-inside::-webkit-resizer {
+    display: none;
+}
+
+.window-nav {
+    background-color: var(--navbar-color);
+}
+
+.alert-nav {
+    background-color: #577783;
+}
+
+.window-nav,
+.alert-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 28px;
+    padding: 0 3px;
+    color: var(--white);
+}
+
+.window-nav:before,
+.window-nav:after,
+.alert-nav:before,
+.alert-nav:after {
+    content: unset;
+}
+
+.window-nav h2,
+.alert-nav h2 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: calc(100% - 69px);
+    margin: 0;
+    line-height: 28px;
+}
+
+
+.window-nav h2[class*=label] span:only-child,
+.alert-nav h2[class*=label] span:only-child {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: calc(100% - 24px - 6px);
+    margin-left: 0.4em;
+}
+
+.window-nav h2:not([class*=label]),
+.alert-nav h2:not([class*=label]) {
+    padding: 0 3px;
+}
+
+.window-nav .buttons,
+.alert-nav .buttons {
+    display: flex;
+}
+
+.window-nav .buttons label,
+.alert-nav .buttons label {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--black), inset 1.5px 1.5px 0 0 var(--interface-color-lighter), inset -3px -3px 0 0 var(--interface-color-darker), inset 3px 3px 0 0 var(--interface-color);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: var(--interface-color);
+    position: relative;
+    width: 22px;
+    height: 20px;
+    background: var(--interface-color);
+}
+
+.window-nav .buttons label[disabled],
+.alert-nav .buttons label[disabled] {
+    pointer-events: none;
+}
+
+.window-nav .buttons label[disabled]:after,
+.alert-nav .buttons label[disabled]:after {
+    opacity: 0.4;
+}
+
+.window-nav .buttons label:last-child,
+.alert-nav .buttons label:last-child {
+    margin-left: 3px;
+}
+
+.window-nav .buttons label.minimize:after,
+.alert-nav .buttons label.minimize:after {
+    display: block;
+    position: absolute;
+    bottom: 4.5px;
+    left: 5px;
+    width: 10px;
+    height: 3px;
+    background: var(--black);
+}
+
+.window-nav .buttons label.maximize:before,
+.window-nav .buttons label.maximize:after,
+.alert-nav .buttons label.maximize:before,
+.alert-nav .buttons label.maximize:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 1.5px solid var(--black);
+    border-top-width: 3px;
+    background-color: var(--interface-color);
+}
+
+.window-nav .buttons label.maximize:before,
+.alert-nav .buttons label.maximize:before {
+    visibility: hidden;
+}
+
+.window-nav .buttons label.close:after,
+.alert-nav .buttons label.close:after {
+    content: "";
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOHB4IiBoZWlnaHQ9IjdweCIgdmlld0JveD0iMCAwIDggNyIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgPHBvbHlnb24gc3Ryb2tlPSJub25lIiBmaWxsPSIjMjYzMjM4IiBwb2ludHM9IjMgMyAyIDMgMiAyIDEgMiAxIDEgMCAxIDAgMCAyIDAgMiAxIDMgMSAzIDIgNSAyIDUgMSA2IDEgNiAwIDggMCA4IDEgNyAxIDcgMiA2IDIgNiAzIDUgMyA1IDQgNiA0IDYgNSA3IDUgNyA2IDggNiA4IDcgNiA3IDYgNiA1IDYgNSA1IDMgNSAzIDYgMiA2IDIgNyAwIDcgMCA2IDEgNiAxIDUgMiA1IDIgNCAzIDQiPjwvcG9seWdvbj4KPC9zdmc+");
+    width: 12px;
+    height: 10px;
+}
+
+.window-nav .buttons label.question:after,
+.alert-nav .buttons label.question:after {
+    content: "";
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNnB4IiBoZWlnaHQ9IjlweCIgdmlld0JveD0iMCAwIDYgOSIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KPGcgZmlsbD0iIzFBMkMzNCI+Cjxwb2x5Z29uIHBvaW50cz0iMyA0IDMgMyA0IDMgNCAxIDIgMSAyIDMgMCAzIDAgMSAxIDEgMSAwIDUgMCA1IDEgNiAxIDYgMyA1IDMgNSA0IDQgNCA0IDYgMiA2IDIgNCI+PC9wb2x5Z29uPgo8cmVjdCB4PSIyIiB5PSI3IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIj48L3JlY3Q+CjwvZz4KPC9zdmc+");
+    width: 9px;
+    height: 14px;
+}
+
+.window-nav .buttons label:not([disabled]):active,
+.alert-nav .buttons label:not([disabled]):active {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+.window-default .window-inside {
+    width: 40vw;
+    height: 50vh;
+}
+
+.window-text .window-inside {
+    width: 60vw;
+    height: 75vh;
+}
+
+.window-content {
+    height: calc(100% - 56px);
+}
+
+.window-content>.list-container {
+    margin-top: 0;
+}
+
+.text-container {
+    padding: 1em;
+}
+
+.list-container,
+.text-container {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--interface-color-light), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--black);
+    padding: 3px;
+    background: var(--white);
+    height: calc(100% - 28px - 2px);
+    margin-top: 2px;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    height: 100%;
+    overflow: auto;
+    padding: 1em;
+    gap: 1em;
+}
+
+.text {
+    height: 100%;
+    overflow: auto;
+    padding: 1em;
+}
+
+.list li {
+    position: relative;
+}
+
+.list label:not(.label-toggle) {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-bottom: 3px;
+    white-space: nowrap;
+}
+
+.list label:not(.label-toggle):before {
+    display: block;
+    position: relative;
+    z-index: 2;
+}
+
+.list label:not(.label-toggle):active span,
+.list label:not(.label-toggle):focus span {
+    border: 1px dotted #D1AE87;
+}
+
+@media (min-width: 500px) {
+
+    .list label:not(.label-toggle):active span,
+    .list label:not(.label-toggle):focus span {
+        border-width: 1.5px;
+    }
+}
+
+.list .label-toggle {
+    display: block;
+    position: absolute;
+    top: 6px;
+    left: -22px;
+    width: 12.5px;
+    height: 12.5px;
+    box-shadow: inset -1.5px -1.5px 0 0 var(--interface-color-light), inset 1.5px 1.5px 0 0 var(--interface-color-light);
+    background-color: var(--white);
+}
+
+.list .label-toggle:before,
+.list .label-toggle:after {
+    display: block;
+    position: absolute;
+    background-color: var(--black);
+}
+
+.list .label-toggle:before {
+    left: 3px;
+    top: 5.5px;
+    width: 6.5px;
+    height: 1.5px;
+}
+
+.list .label-toggle:after {
+    left: 5.5px;
+    top: 3px;
+    width: 1.5px;
+    height: 6.5px;
+}
+
+.list .label-toggle~menu {
+    display: none;
+}
+
+.window-inside .window-content .list:not(.folders .list) {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, 120px);
+    row-gap: 24px;
+    padding: 9px 0;
+}
+
+.list menu {
+    position: relative;
+    padding-left: 26px;
+}
+
+.list menu:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -3px;
+    left: 9px;
+    height: calc(100% - 12px);
+    border-left: 1px dotted var(--interface-color-light);
+}
+
+@media (min-width: 500px) {
+    .list menu:before {
+        height: calc(100% - 11px);
+        border-left-width: 1.5px;
+    }
+}
+
+.list menu li {
+    position: relative;
+}
+
+.above-footer {
+    height: 100%;
+}
+
+#alerts {
+    z-index: -1;
+}
+
+
+.alert-inside {
+    min-width: unset;
+    min-height: unset;
+    width: 320px;
+    height: 180px;
+    resize: none;
+}
+
+.alert-content {
+    padding: 0 24px;
+    height: calc(100% - 28px - 52px);
+}
+
+.alert-content p {
+    padding: 16px 0 0;
+    margin: 0;
+}
+
+#window-taskbar {
+    left: 3px;
+    bottom: 48px;
+}
+
+#window-taskbar>.window-inside {
+    resize: none;
+    width: 510px;
+    height: 600px;
+}
+
+#window-taskbar>.window-inside>.window-content {
+    padding: 12px 9px 10px;
+    height: calc(100% - 28px - 3px - 36px - 9px);
+}
+
+#window-taskbar .window-footer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 0 9px;
+}
+
+#window-taskbar .tab-container {
+    height: 100%;
+}
+
+#window-taskbar .tab-group {
+    display: flex;
+}
+
+#window-taskbar .tab {
+    display: block;
+    position: relative;
+    z-index: 0;
+    margin-top: 3px;
+    line-height: 32px;
+    padding: 0 12px;
+    background-color: var(--interface-color);
+}
+
+#window-taskbar .tab:first-child {
+    transform: translateX(3px);
+}
+
+#window-taskbar .tab:not(:first-child) {
+    margin-left: -3px;
+    transform: translateX(-3px);
+}
+
+#window-taskbar .tab:before,
+#window-taskbar .tab:after,
+#window-taskbar .tab span:before,
+#window-taskbar .tab span:after {
+    content: "";
+    display: block;
+    position: absolute;
+}
+
+#window-taskbar .tab:before {
+    width: calc(100% - 6px);
+    height: 100%;
+    top: 0;
+    left: 3px;
+    border-top: 1.5px solid var(--white);
+}
+
+#window-taskbar .tab:after {
+    width: 100%;
+    height: calc(100% - 3px);
+    bottom: 0;
+    left: 0;
+    border-left: 1.5px solid var(--white);
+    border-right: 1.5px solid var(--black);
+    box-shadow: inset -1.5px 0 0 0 var(--interface-color-light);
+}
+
+#window-taskbar .tab span:before,
+#window-taskbar .tab span:after {
+    top: 1.5px;
+    width: 1.5px;
+    height: 1.5px;
+}
+
+#window-taskbar .tab span:before {
+    left: 1.5px;
+    background-color: var(--white);
+}
+
+#window-taskbar .tab span:after {
+    right: 1.5px;
+    background-color: var(--black);
+}
+
+#window-taskbar #taskbar-options:checked~.window-inside .tab-taskbar-options {
+    z-index: 12;
+    margin-top: 0;
+    transform: none;
+}
+
+#window-taskbar #taskbar-options:checked~.window-inside .tabpanel.taskbar-options {
+    z-index: 12;
+}
+
+#window-taskbar #start-menu-programs:checked~.window-inside .tab-start-menu-programs {
+    z-index: 12;
+    margin-top: 0;
+    transform: none;
+}
+
+#window-taskbar #start-menu-programs:checked~.window-inside .tabpanel.start-menu-programs {
+    z-index: 12;
+}
+
+#window-taskbar .tabpanel-group {
+    position: relative;
+    z-index: 0;
+    margin-top: -1.5px;
+    height: calc(100% - 32px + 1.5px);
+}
+
+#window-taskbar .tabpanel {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--black), inset 1.5px 1.5px 0 0 var(--white), inset -3px -3px 0 0 var(--interface-color-light), inset 3px 3px 0 0 var(--interface-color);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-color: var(--interface-color);
+}
+
+#taskbar:checked~main .tab-taskbar {
+    display: flex;
+}
+
+#taskbar:checked~main .menu .label-taskbar {
+    pointer-events: none;
+}
+
+#taskbar.active~#taskbar-minimize:not(:checked)~main #window-taskbar,
+#taskbar.active.no-tab~main #window-taskbar {
+    z-index: 10;
+}
+
+#taskbar.active~#taskbar-minimize:not(:checked)~main #window-taskbar .window-nav,
+#taskbar.active.no-tab~main #window-taskbar .window-nav {
+    background-color: #577783;
+}
+
+#taskbar.active~#taskbar-minimize:not(:checked)~main .window[data-window]:not(#window-taskbar),
+#taskbar.active.no-tab~main .window[data-window]:not(#window-taskbar) {
+    z-index: 2;
+}
+
+#taskbar.active~#taskbar-minimize:not(:checked)~main .tab-taskbar label,
+#taskbar.active.no-tab~main .tab-taskbar label {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: var(--interface-color);
+    background-color: transparent;
+    background-image: linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-size: 3px 3px;
+    background-position: 0 0, 1.5px 1.5px;
+    justify-content: flex-start;
+}
+
+#taskbar.active~#taskbar-minimize:not(:checked)~main .activate:not(.tab-taskbar .activate),
+#taskbar.active.no-tab~main .activate:not(.tab-taskbar .activate) {
+    z-index: 1;
+}
+
+#taskbar.active~#taskbar-minimize:not(:checked)~main .tab label:not(.tab-taskbar label),
+#taskbar.active.no-tab~main .tab label:not(.tab-taskbar label) {
+    z-index: 0;
+}
+
+#taskbar-minimize:active~main #window-taskbar .window-inside .minimize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#taskbar-minimize:checked~main #window-taskbar {
+    transform: scale(0);
+}
+
+#taskbar-maximize:active~main #window-taskbar .window-inside .maximize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#taskbar-maximize:checked~main #window-taskbar {
+    left: unset !important;
+    top: 0 !important;
+}
+
+#taskbar-maximize:checked~main #window-taskbar .window-inside {
+    max-width: calc(100vw - 12px);
+    width: calc(100vw - 12px) !important;
+    height: calc(100vh - var(--taskbar-height) - 12px) !important;
+}
+
+#taskbar-maximize:checked~main #window-taskbar .window-inside .maximize:before,
+#taskbar-maximize:checked~main #window-taskbar .window-inside .maximize:after {
+    width: 9px;
+    height: 9px;
+}
+
+#taskbar-maximize:checked~main #window-taskbar .window-inside .maximize:before {
+    visibility: visible;
+    top: 3px;
+    right: 6px;
+}
+
+#taskbar-maximize:checked~main #window-taskbar .window-inside .maximize:after {
+    bottom: 4px;
+    left: 4px;
+}
+
+#computer:checked~main #window-computer {
+    will-change: transform;
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+#computer:checked~main .tab-computer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+#computer:checked~main .menu .label-computer {
+    pointer-events: none;
+}
+
+#computer.active~#computer-minimize:not(:checked)~main #window-computer,
+#computer.active.no-tab~main #window-computer {
+    z-index: 10;
+}
+
+#computer.active~#computer-minimize:not(:checked)~main #window-computer .window-nav,
+#computer.active.no-tab~main #window-computer .window-nav {
+    background-color: var(--navbar-active-color);
+}
+
+#computer.active~#computer-minimize:not(:checked)~main .window[data-window]:not(#window-computer),
+#computer.active.no-tab~main .window[data-window]:not(#window-computer) {
+    z-index: 2;
+}
+
+#computer.active~#computer-minimize:not(:checked)~main .tab-computer label,
+#computer.active.no-tab~main .tab-computer label {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: #cac6cb;
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-image: linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-size: 3px 3px;
+    background-position: 0 0, 1.5px 1.5px;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+#computer.active~#computer-minimize:not(:checked)~main .activate:not(.tab-computer .activate),
+#computer.active.no-tab~main .activate:not(.tab-computer .activate) {
+    z-index: 1;
+}
+
+#computer.active~#computer-minimize:not(:checked)~main .tab label:not(.tab-computer label),
+#computer.active.no-tab~main .tab label:not(.tab-computer label) {
+    z-index: 0;
+}
+
+#computer-minimize:active~main #window-computer .window-inside .minimize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#computer-minimize:checked~main #window-computer {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+}
+
+#computer-maximize:active~main #window-computer .window-inside .maximize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#computer-maximize:checked~main #window-computer {
+    left: unset !important;
+    top: 0 !important;
+}
+
+#computer-maximize:checked~main #window-computer .window-inside {
+    max-width: calc(100vw - 12px);
+    width: calc(100vw - 12px) !important;
+    height: calc(100vh - 44px - 12px) !important;
+}
+
+#computer-maximize:checked~main #window-computer .window-inside .maximize:before,
+#computer-maximize:checked~main #window-computer .window-inside .maximize:after {
+    width: 9px;
+    height: 9px;
+}
+
+#computer-maximize:checked~main #window-computer .window-inside .maximize:before {
+    visibility: visible;
+    top: 3px;
+    right: 6px;
+}
+
+#computer-maximize:checked~main #window-computer .window-inside .maximize:after {
+    bottom: 4px;
+    left: 4px;
+}
+
+#recycle-bin:checked~main #window-recycle-bin {
+    will-change: transform;
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+#recycle-bin:checked~main .tab-recycle-bin {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+#recycle-bin:checked~main .menu .label-recycle-bin {
+    pointer-events: none;
+}
+
+#recycle-bin.active~#recycle-bin-minimize:not(:checked)~main #window-recycle-bin,
+#recycle-bin.active.no-tab~main #window-recycle-bin {
+    z-index: 10;
+}
+
+#recycle-bin.active~#recycle-bin-minimize:not(:checked)~main #window-recycle-bin .window-nav,
+#recycle-bin.active.no-tab~main #window-recycle-bin .window-nav {
+    background-color: var(--navbar-active-color);
+}
+
+#recycle-bin.active~#recycle-bin-minimize:not(:checked)~main .window[data-window]:not(#window-recycle-bin),
+#recycle-bin.active.no-tab~main .window[data-window]:not(#window-recycle-bin) {
+    z-index: 2;
+}
+
+#recycle-bin.active~#recycle-bin-minimize:not(:checked)~main .tab-recycle-bin label,
+#recycle-bin.active.no-tab~main .tab-recycle-bin label {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: #cac6cb;
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-image: linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-size: 3px 3px;
+    background-position: 0 0, 1.5px 1.5px;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+#recycle-bin.active~#recycle-bin-minimize:not(:checked)~main .activate:not(.tab-recycle-bin .activate),
+#recycle-bin.active.no-tab~main .activate:not(.tab-recycle-bin .activate) {
+    z-index: 1;
+}
+
+#recycle-bin.active~#recycle-bin-minimize:not(:checked)~main .tab label:not(.tab-recycle-bin label),
+#recycle-bin.active.no-tab~main .tab label:not(.tab-recycle-bin label) {
+    z-index: 0;
+}
+
+#recycle-bin-minimize:active~main #window-recycle-bin .window-inside .minimize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#recycle-bin-minimize:checked~main #window-recycle-bin {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+}
+
+#recycle-bin-maximize:active~main #window-recycle-bin .window-inside .maximize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#recycle-bin-maximize:checked~main #window-recycle-bin {
+    left: unset !important;
+    top: 0 !important;
+}
+
+#recycle-bin-maximize:checked~main #window-recycle-bin .window-inside {
+    max-width: calc(100vw - 12px);
+    width: calc(100vw - 12px) !important;
+    height: calc(100vh - 44px - 12px) !important;
+}
+
+#recycle-bin-maximize:checked~main #window-recycle-bin .window-inside .maximize:before,
+#recycle-bin-maximize:checked~main #window-recycle-bin .window-inside .maximize:after {
+    width: 9px;
+    height: 9px;
+}
+
+#recycle-bin-maximize:checked~main #window-recycle-bin .window-inside .maximize:before {
+    visibility: visible;
+    top: 3px;
+    right: 6px;
+}
+
+#recycle-bin-maximize:checked~main #window-recycle-bin .window-inside .maximize:after {
+    bottom: 4px;
+    left: 4px;
+}
+
+#dreams:checked~main #window-dreams {
+    will-change: transform;
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+#dreams:checked~main .tab-dreams {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+#dreams:checked~main .menu .label-dreams {
+    pointer-events: none;
+}
+
+#dreams.active~#dreams-minimize:not(:checked)~main #window-dreams,
+#dreams.active.no-tab~main #window-dreams {
+    z-index: 10;
+}
+
+#dreams.active~#dreams-minimize:not(:checked)~main #window-dreams .window-nav,
+#dreams.active.no-tab~main #window-dreams .window-nav {
+    background-color: var(--navbar-active-color);
+}
+
+#dreams.active~#dreams-minimize:not(:checked)~main .window[data-window]:not(#window-dreams),
+#dreams.active.no-tab~main .window[data-window]:not(#window-dreams) {
+    z-index: 2;
+}
+
+#dreams.active~#dreams-minimize:not(:checked)~main .tab-dreams label,
+#dreams.active.no-tab~main .tab-dreams label {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: #cac6cb;
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-image: linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-size: 3px 3px;
+    background-position: 0 0, 1.5px 1.5px;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+#dreams.active~#dreams-minimize:not(:checked)~main .activate:not(.tab-dreams .activate),
+#dreams.active.no-tab~main .activate:not(.tab-dreams .activate) {
+    z-index: 1;
+}
+
+#dreams.active~#dreams-minimize:not(:checked)~main .tab label:not(.tab-dreams label),
+#dreams.active.no-tab~main .tab label:not(.tab-dreams label) {
+    z-index: 0;
+}
+
+#dreams-minimize:active~main #window-dreams .window-inside .minimize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#dreams-minimize:checked~main #window-dreams {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+}
+
+#dreams-maximize:active~main #window-dreams .window-inside .maximize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#dreams-maximize:checked~main #window-dreams {
+    left: unset !important;
+    top: 0 !important;
+}
+
+#dreams-maximize:checked~main #window-dreams .window-inside {
+    max-width: calc(100vw - 12px);
+    width: calc(100vw - 12px) !important;
+    height: calc(100vh - 44px - 12px) !important;
+}
+
+#dreams-maximize:checked~main #window-dreams .window-inside .maximize:before,
+#dreams-maximize:checked~main #window-dreams .window-inside .maximize:after {
+    width: 9px;
+    height: 9px;
+}
+
+#dreams-maximize:checked~main #window-dreams .window-inside .maximize:before {
+    visibility: visible;
+    top: 3px;
+    right: 6px;
+}
+
+#dreams-maximize:checked~main #window-dreams .window-inside .maximize:after {
+    bottom: 4px;
+    left: 4px;
+}
+
+#dream-1:checked~main #window-dream-1 {
+    will-change: transform;
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+#dream-1:checked~main .tab-dream-1 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+#dream-1:checked~main .menu .label-dream-1 {
+    pointer-events: none;
+}
+
+#dream-1.active~#dream-1-minimize:not(:checked)~main #window-dream-1,
+#dream-1.active.no-tab~main #window-dream-1 {
+    z-index: 10;
+}
+
+#dream-1.active~#dream-1-minimize:not(:checked)~main #window-dream-1 .window-nav,
+#dream-1.active.no-tab~main #window-dream-1 .window-nav {
+    background-color: var(--navbar-active-color);
+}
+
+#dream-1.active~#dream-1-minimize:not(:checked)~main .window[data-window]:not(#window-dream-1),
+#dream-1.active.no-tab~main .window[data-window]:not(#window-dream-1) {
+    z-index: 2;
+}
+
+#dream-1.active~#dream-1-minimize:not(:checked)~main .tab-dream-1 label,
+#dream-1.active.no-tab~main .tab-dream-1 label {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: #cac6cb;
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-image: linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-size: 3px 3px;
+    background-position: 0 0, 1.5px 1.5px;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+#dream-1.active~#dream-1-minimize:not(:checked)~main .activate:not(.tab-dream-1 .activate),
+#dream-1.active.no-tab~main .activate:not(.tab-dream-1 .activate) {
+    z-index: 1;
+}
+
+#dream-1.active~#dream-1-minimize:not(:checked)~main .tab label:not(.tab-dream-1 label),
+#dream-1.active.no-tab~main .tab label:not(.tab-dream-1 label) {
+    z-index: 0;
+}
+
+#dream-1-minimize:active~main #window-dream-1 .window-inside .minimize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#dream-1-minimize:checked~main #window-dream-1 {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+}
+
+#dream-1-maximize:active~main #window-dream-1 .window-inside .maximize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#dream-1-maximize:checked~main #window-dream-1 {
+    left: unset !important;
+    top: 0 !important;
+}
+
+#dream-1-maximize:checked~main #window-dream-1 .window-inside {
+    max-width: calc(100vw - 12px);
+    width: calc(100vw - 12px) !important;
+    height: calc(100vh - 44px - 12px) !important;
+}
+
+#dream-1-maximize:checked~main #window-dream-1 .window-inside .maximize:before,
+#dream-1-maximize:checked~main #window-dream-1 .window-inside .maximize:after {
+    width: 9px;
+    height: 9px;
+}
+
+#dream-1-maximize:checked~main #window-dream-1 .window-inside .maximize:before {
+    visibility: visible;
+    top: 3px;
+    right: 6px;
+}
+
+#dream-1-maximize:checked~main #window-dream-1 .window-inside .maximize:after {
+    bottom: 4px;
+    left: 4px;
+}
+
+#dream-2:checked~main #window-dream-2 {
+    will-change: transform;
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+#dream-2:checked~main .tab-dream-2 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+#dream-2:checked~main .menu .label-dream-2 {
+    pointer-events: none;
+}
+
+#dream-2.active~#dream-2-minimize:not(:checked)~main #window-dream-2,
+#dream-2.active.no-tab~main #window-dream-2 {
+    z-index: 10;
+}
+
+#dream-2.active~#dream-2-minimize:not(:checked)~main #window-dream-2 .window-nav,
+#dream-2.active.no-tab~main #window-dream-2 .window-nav {
+    background-color: var(--navbar-active-color);
+}
+
+#dream-2.active~#dream-2-minimize:not(:checked)~main .window[data-window]:not(#window-dream-2),
+#dream-2.active.no-tab~main .window[data-window]:not(#window-dream-2) {
+    z-index: 2;
+}
+
+#dream-2.active~#dream-2-minimize:not(:checked)~main .tab-dream-2 label,
+#dream-2.active.no-tab~main .tab-dream-2 label {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: #cac6cb;
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-image: linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-size: 3px 3px;
+    background-position: 0 0, 1.5px 1.5px;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+#dream-2.active~#dream-2-minimize:not(:checked)~main .activate:not(.tab-dream-2 .activate),
+#dream-2.active.no-tab~main .activate:not(.tab-dream-2 .activate) {
+    z-index: 1;
+}
+
+#dream-2.active~#dream-2-minimize:not(:checked)~main .tab label:not(.tab-dream-2 label),
+#dream-2.active.no-tab~main .tab label:not(.tab-dream-2 label) {
+    z-index: 0;
+}
+
+#dream-2-minimize:active~main #window-dream-2 .window-inside .minimize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#dream-2-minimize:checked~main #window-dream-2 {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+}
+
+#dream-2-maximize:active~main #window-dream-2 .window-inside .maximize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#dream-2-maximize:checked~main #window-dream-2 {
+    left: unset !important;
+    top: 0 !important;
+}
+
+#dream-2-maximize:checked~main #window-dream-2 .window-inside {
+    max-width: calc(100vw - 12px);
+    width: calc(100vw - 12px) !important;
+    height: calc(100vh - 44px - 12px) !important;
+}
+
+#dream-2-maximize:checked~main #window-dream-2 .window-inside .maximize:before,
+#dream-2-maximize:checked~main #window-dream-2 .window-inside .maximize:after {
+    width: 9px;
+    height: 9px;
+}
+
+#dream-2-maximize:checked~main #window-dream-2 .window-inside .maximize:before {
+    visibility: visible;
+    top: 3px;
+    right: 6px;
+}
+
+#dream-2-maximize:checked~main #window-dream-2 .window-inside .maximize:after {
+    bottom: 4px;
+    left: 4px;
+}
+
+#dream-3:checked~main #window-dream-3 {
+    will-change: transform;
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+#dream-3:checked~main .tab-dream-3 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+#dream-3:checked~main .menu .label-dream-3 {
+    pointer-events: none;
+}
+
+#dream-3.active~#dream-3-minimize:not(:checked)~main #window-dream-3,
+#dream-3.active.no-tab~main #window-dream-3 {
+    z-index: 10;
+}
+
+#dream-3.active~#dream-3-minimize:not(:checked)~main #window-dream-3 .window-nav,
+#dream-3.active.no-tab~main #window-dream-3 .window-nav {
+    background-color: var(--navbar-active-color);
+}
+
+#dream-3.active~#dream-3-minimize:not(:checked)~main .window[data-window]:not(#window-dream-3),
+#dream-3.active.no-tab~main .window[data-window]:not(#window-dream-3) {
+    z-index: 2;
+}
+
+#dream-3.active~#dream-3-minimize:not(:checked)~main .tab-dream-3 label,
+#dream-3.active.no-tab~main .tab-dream-3 label {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: #cac6cb;
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-image: linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-size: 3px 3px;
+    background-position: 0 0, 1.5px 1.5px;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+#dream-3.active~#dream-3-minimize:not(:checked)~main .activate:not(.tab-dream-3 .activate),
+#dream-3.active.no-tab~main .activate:not(.tab-dream-3 .activate) {
+    z-index: 1;
+}
+
+#dream-3.active~#dream-3-minimize:not(:checked)~main .tab label:not(.tab-dream-3 label),
+#dream-3.active.no-tab~main .tab label:not(.tab-dream-3 label) {
+    z-index: 0;
+}
+
+#dream-3-minimize:active~main #window-dream-3 .window-inside .minimize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#dream-3-minimize:checked~main #window-dream-3 {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+}
+
+#dream-3-maximize:active~main #window-dream-3 .window-inside .maximize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#dream-3-maximize:checked~main #window-dream-3 {
+    left: unset !important;
+    top: 0 !important;
+}
+
+#dream-3-maximize:checked~main #window-dream-3 .window-inside {
+    max-width: calc(100vw - 12px);
+    width: calc(100vw - 12px) !important;
+    height: calc(100vh - 44px - 12px) !important;
+}
+
+#dream-3-maximize:checked~main #window-dream-3 .window-inside .maximize:before,
+#dream-3-maximize:checked~main #window-dream-3 .window-inside .maximize:after {
+    width: 9px;
+    height: 9px;
+}
+
+#dream-3-maximize:checked~main #window-dream-3 .window-inside .maximize:before {
+    visibility: visible;
+    top: 3px;
+    right: 6px;
+}
+
+#dream-3-maximize:checked~main #window-dream-3 .window-inside .maximize:after {
+    bottom: 4px;
+    left: 4px;
+}
+
+#dream-4:checked~main #window-dream-4 {
+    will-change: transform;
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+#dream-4:checked~main .tab-dream-4 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+#dream-4:checked~main .menu .label-dream-4 {
+    pointer-events: none;
+}
+
+#dream-4.active~#dream-4-minimize:not(:checked)~main #window-dream-4,
+#dream-4.active.no-tab~main #window-dream-4 {
+    z-index: 10;
+}
+
+#dream-4.active~#dream-4-minimize:not(:checked)~main #window-dream-4 .window-nav,
+#dream-4.active.no-tab~main #window-dream-4 .window-nav {
+    background-color: var(--navbar-active-color);
+}
+
+#dream-4.active~#dream-4-minimize:not(:checked)~main .window[data-window]:not(#window-dream-4),
+#dream-4.active.no-tab~main .window[data-window]:not(#window-dream-4) {
+    z-index: 2;
+}
+
+#dream-4.active~#dream-4-minimize:not(:checked)~main .tab-dream-4 label,
+#dream-4.active.no-tab~main .tab-dream-4 label {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: #cac6cb;
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-image: linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-size: 3px 3px;
+    background-position: 0 0, 1.5px 1.5px;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+#dream-4.active~#dream-4-minimize:not(:checked)~main .activate:not(.tab-dream-4 .activate),
+#dream-4.active.no-tab~main .activate:not(.tab-dream-4 .activate) {
+    z-index: 1;
+}
+
+#dream-4.active~#dream-4-minimize:not(:checked)~main .tab label:not(.tab-dream-4 label),
+#dream-4.active.no-tab~main .tab label:not(.tab-dream-4 label) {
+    z-index: 0;
+}
+
+#dream-4-minimize:active~main #window-dream-4 .window-inside .minimize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#dream-4-minimize:checked~main #window-dream-4 {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+}
+
+#dream-4-maximize:active~main #window-dream-4 .window-inside .maximize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#dream-4-maximize:checked~main #window-dream-4 {
+    left: unset !important;
+    top: 0 !important;
+}
+
+#dream-4-maximize:checked~main #window-dream-4 .window-inside {
+    max-width: calc(100vw - 12px);
+    width: calc(100vw - 12px) !important;
+    height: calc(100vh - 44px - 12px) !important;
+}
+
+#dream-4-maximize:checked~main #window-dream-4 .window-inside .maximize:before,
+#dream-4-maximize:checked~main #window-dream-4 .window-inside .maximize:after {
+    width: 9px;
+    height: 9px;
+}
+
+#dream-4-maximize:checked~main #window-dream-4 .window-inside .maximize:before {
+    visibility: visible;
+    top: 3px;
+    right: 6px;
+}
+
+#dream-4-maximize:checked~main #window-dream-4 .window-inside .maximize:after {
+    bottom: 4px;
+    left: 4px;
+}
+
+#artist-interview:checked~main #window-artist-interview {
+    will-change: transform;
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+#artist-interview:checked~main .tab-artist-interview {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+#artist-interview:checked~main .menu .label-artist-interview {
+    pointer-events: none;
+}
+
+#artist-interview.active~#artist-interview-minimize:not(:checked)~main #window-artist-interview,
+#artist-interview.active.no-tab~main #window-artist-interview {
+    z-index: 10;
+}
+
+#artist-interview.active~#artist-interview-minimize:not(:checked)~main #window-artist-interview .window-nav,
+#artist-interview.active.no-tab~main #window-artist-interview .window-nav {
+    background-color: var(--navbar-active-color);
+}
+
+#artist-interview.active~#artist-interview-minimize:not(:checked)~main .window[data-window]:not(#window-artist-interview),
+#artist-interview.active.no-tab~main .window[data-window]:not(#window-artist-interview) {
+    z-index: 2;
+}
+
+#artist-interview.active~#artist-interview-minimize:not(:checked)~main .tab-artist-interview label,
+#artist-interview.active.no-tab~main .tab-artist-interview label {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: #cac6cb;
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-image: linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-size: 3px 3px;
+    background-position: 0 0, 1.5px 1.5px;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+#artist-interview.active~#artist-interview-minimize:not(:checked)~main .activate:not(.tab-artist-interview .activate),
+#artist-interview.active.no-tab~main .activate:not(.tab-artist-interview .activate) {
+    z-index: 1;
+}
+
+#artist-interview.active~#artist-interview-minimize:not(:checked)~main .tab label:not(.tab-artist-interview label),
+#artist-interview.active.no-tab~main .tab label:not(.tab-artist-interview label) {
+    z-index: 0;
+}
+
+#artist-interview-minimize:active~main #window-artist-interview .window-inside .minimize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#artist-interview-minimize:checked~main #window-artist-interview {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+}
+
+#artist-interview-maximize:active~main #window-artist-interview .window-inside .maximize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#artist-interview-maximize:checked~main #window-artist-interview {
+    left: unset !important;
+    top: 0 !important;
+}
+
+#artist-interview-maximize:checked~main #window-artist-interview .window-inside {
+    max-width: calc(100vw - 12px);
+    width: calc(100vw - 12px) !important;
+    height: calc(100vh - 44px - 12px) !important;
+}
+
+#artist-interview-maximize:checked~main #window-artist-interview .window-inside .maximize:before,
+#artist-interview-maximize:checked~main #window-artist-interview .window-inside .maximize:after {
+    width: 9px;
+    height: 9px;
+}
+
+#artist-interview-maximize:checked~main #window-artist-interview .window-inside .maximize:before {
+    visibility: visible;
+    top: 3px;
+    right: 6px;
+}
+
+#artist-interview-maximize:checked~main #window-artist-interview .window-inside .maximize:after {
+    bottom: 4px;
+    left: 4px;
+}
+
+#curatorial-statement:checked~main #window-curatorial-statement {
+    will-change: transform;
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+#curatorial-statement:checked~main .tab-curatorial-statement {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+#curatorial-statement:checked~main .menu .label-curatorial-statement {
+    pointer-events: none;
+}
+
+#curatorial-statement.active~#curatorial-statement-minimize:not(:checked)~main #window-curatorial-statement,
+#curatorial-statement.active.no-tab~main #window-curatorial-statement {
+    z-index: 10;
+}
+
+#curatorial-statement.active~#curatorial-statement-minimize:not(:checked)~main #window-curatorial-statement .window-nav,
+#curatorial-statement.active.no-tab~main #window-curatorial-statement .window-nav {
+    background-color: var(--navbar-active-color);
+}
+
+#curatorial-statement.active~#curatorial-statement-minimize:not(:checked)~main .window[data-window]:not(#window-curatorial-statement),
+#curatorial-statement.active.no-tab~main .window[data-window]:not(#window-curatorial-statement) {
+    z-index: 2;
+}
+
+#curatorial-statement.active~#curatorial-statement-minimize:not(:checked)~main .tab-curatorial-statement label,
+#curatorial-statement.active.no-tab~main .tab-curatorial-statement label {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: #cac6cb;
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-image: linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-size: 3px 3px;
+    background-position: 0 0, 1.5px 1.5px;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+#curatorial-statement.active~#curatorial-statement-minimize:not(:checked)~main .activate:not(.tab-curatorial-statement .activate),
+#curatorial-statement.active.no-tab~main .activate:not(.tab-curatorial-statement .activate) {
+    z-index: 1;
+}
+
+#curatorial-statement.active~#curatorial-statement-minimize:not(:checked)~main .tab label:not(.tab-curatorial-statement label),
+#curatorial-statement.active.no-tab~main .tab label:not(.tab-curatorial-statement label) {
+    z-index: 0;
+}
+
+#curatorial-statement-minimize:active~main #window-curatorial-statement .window-inside .minimize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#curatorial-statement-minimize:checked~main #window-curatorial-statement {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+}
+
+#curatorial-statement-maximize:active~main #window-curatorial-statement .window-inside .maximize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#curatorial-statement-maximize:checked~main #window-curatorial-statement {
+    left: unset !important;
+    top: 0 !important;
+}
+
+#curatorial-statement-maximize:checked~main #window-curatorial-statement .window-inside {
+    max-width: calc(100vw - 12px);
+    width: calc(100vw - 12px) !important;
+    height: calc(100vh - 44px - 12px) !important;
+}
+
+#curatorial-statement-maximize:checked~main #window-curatorial-statement .window-inside .maximize:before,
+#curatorial-statement-maximize:checked~main #window-curatorial-statement .window-inside .maximize:after {
+    width: 9px;
+    height: 9px;
+}
+
+#curatorial-statement-maximize:checked~main #window-curatorial-statement .window-inside .maximize:before {
+    visibility: visible;
+    top: 3px;
+    right: 6px;
+}
+
+#curatorial-statement-maximize:checked~main #window-curatorial-statement .window-inside .maximize:after {
+    bottom: 4px;
+    left: 4px;
+}
+
+#draft-1:checked~main #window-draft-1 {
+    will-change: transform;
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+#draft-1:checked~main .tab-draft-1 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+#draft-1:checked~main .menu .label-draft-1 {
+    pointer-events: none;
+}
+
+#draft-1.active~#draft-1-minimize:not(:checked)~main #window-draft-1,
+#draft-1.active.no-tab~main #window-draft-1 {
+    z-index: 10;
+}
+
+#draft-1.active~#draft-1-minimize:not(:checked)~main #window-draft-1 .window-nav,
+#draft-1.active.no-tab~main #window-draft-1 .window-nav {
+    background-color: var(--navbar-active-color);
+}
+
+#draft-1.active~#draft-1-minimize:not(:checked)~main .window[data-window]:not(#window-draft-1),
+#draft-1.active.no-tab~main .window[data-window]:not(#window-draft-1) {
+    z-index: 2;
+}
+
+#draft-1.active~#draft-1-minimize:not(:checked)~main .tab-draft-1 label,
+#draft-1.active.no-tab~main .tab-draft-1 label {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: #cac6cb;
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-image: linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-size: 3px 3px;
+    background-position: 0 0, 1.5px 1.5px;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+#draft-1.active~#draft-1-minimize:not(:checked)~main .activate:not(.tab-draft-1 .activate),
+#draft-1.active.no-tab~main .activate:not(.tab-draft-1 .activate) {
+    z-index: 1;
+}
+
+#draft-1.active~#draft-1-minimize:not(:checked)~main .tab label:not(.tab-draft-1 label),
+#draft-1.active.no-tab~main .tab label:not(.tab-draft-1 label) {
+    z-index: 0;
+}
+
+#draft-1-minimize:active~main #window-draft-1 .window-inside .minimize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#draft-1-minimize:checked~main #window-draft-1 {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+}
+
+#draft-1-maximize:active~main #window-draft-1 .window-inside .maximize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#draft-1-maximize:checked~main #window-draft-1 {
+    left: unset !important;
+    top: 0 !important;
+}
+
+#draft-1-maximize:checked~main #window-draft-1 .window-inside {
+    max-width: calc(100vw - 12px);
+    width: calc(100vw - 12px) !important;
+    height: calc(100vh - 44px - 12px) !important;
+}
+
+#draft-1-maximize:checked~main #window-draft-1 .window-inside .maximize:before,
+#draft-1-maximize:checked~main #window-draft-1 .window-inside .maximize:after {
+    width: 9px;
+    height: 9px;
+}
+
+#draft-1-maximize:checked~main #window-draft-1 .window-inside .maximize:before {
+    visibility: visible;
+    top: 3px;
+    right: 6px;
+}
+
+#draft-1-maximize:checked~main #window-draft-1 .window-inside .maximize:after {
+    bottom: 4px;
+    left: 4px;
+}
+
+#draft-2:checked~main #window-draft-2 {
+    will-change: transform;
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+#draft-2:checked~main .tab-draft-2 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+#draft-2:checked~main .menu .label-draft-2 {
+    pointer-events: none;
+}
+
+#draft-2.active~#draft-2-minimize:not(:checked)~main #window-draft-2,
+#draft-2.active.no-tab~main #window-draft-2 {
+    z-index: 10;
+}
+
+#draft-2.active~#draft-2-minimize:not(:checked)~main #window-draft-2 .window-nav,
+#draft-2.active.no-tab~main #window-draft-2 .window-nav {
+    background-color: var(--navbar-active-color);
+}
+
+#draft-2.active~#draft-2-minimize:not(:checked)~main .window[data-window]:not(#window-draft-2),
+#draft-2.active.no-tab~main .window[data-window]:not(#window-draft-2) {
+    z-index: 2;
+}
+
+#draft-2.active~#draft-2-minimize:not(:checked)~main .tab-draft-2 label,
+#draft-2.active.no-tab~main .tab-draft-2 label {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: #cac6cb;
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-image: linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-size: 3px 3px;
+    background-position: 0 0, 1.5px 1.5px;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+#draft-2.active~#draft-2-minimize:not(:checked)~main .activate:not(.tab-draft-2 .activate),
+#draft-2.active.no-tab~main .activate:not(.tab-draft-2 .activate) {
+    z-index: 1;
+}
+
+#draft-2.active~#draft-2-minimize:not(:checked)~main .tab label:not(.tab-draft-2 label),
+#draft-2.active.no-tab~main .tab label:not(.tab-draft-2 label) {
+    z-index: 0;
+}
+
+#draft-2-minimize:active~main #window-draft-2 .window-inside .minimize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#draft-2-minimize:checked~main #window-draft-2 {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+}
+
+#draft-2-maximize:active~main #window-draft-2 .window-inside .maximize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#draft-2-maximize:checked~main #window-draft-2 {
+    left: unset !important;
+    top: 0 !important;
+}
+
+#draft-2-maximize:checked~main #window-draft-2 .window-inside {
+    max-width: calc(100vw - 12px);
+    width: calc(100vw - 12px) !important;
+    height: calc(100vh - 44px - 12px) !important;
+}
+
+#draft-2-maximize:checked~main #window-draft-2 .window-inside .maximize:before,
+#draft-2-maximize:checked~main #window-draft-2 .window-inside .maximize:after {
+    width: 9px;
+    height: 9px;
+}
+
+#draft-2-maximize:checked~main #window-draft-2 .window-inside .maximize:before {
+    visibility: visible;
+    top: 3px;
+    right: 6px;
+}
+
+#draft-2-maximize:checked~main #window-draft-2 .window-inside .maximize:after {
+    bottom: 4px;
+    left: 4px;
+}
+
+#draft-3:checked~main #window-draft-3 {
+    will-change: transform;
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+#draft-3:checked~main .tab-draft-3 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+#draft-3:checked~main .menu .label-draft-3 {
+    pointer-events: none;
+}
+
+#draft-3.active~#draft-3-minimize:not(:checked)~main #window-draft-3,
+#draft-3.active.no-tab~main #window-draft-3 {
+    z-index: 10;
+}
+
+#draft-3.active~#draft-3-minimize:not(:checked)~main #window-draft-3 .window-nav,
+#draft-3.active.no-tab~main #window-draft-3 .window-nav {
+    background-color: var(--navbar-active-color);
+}
+
+#draft-3.active~#draft-3-minimize:not(:checked)~main .window[data-window]:not(#window-draft-3),
+#draft-3.active.no-tab~main .window[data-window]:not(#window-draft-3) {
+    z-index: 2;
+}
+
+#draft-3.active~#draft-3-minimize:not(:checked)~main .tab-draft-3 label,
+#draft-3.active.no-tab~main .tab-draft-3 label {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: #cac6cb;
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-image: linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-size: 3px 3px;
+    background-position: 0 0, 1.5px 1.5px;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+#draft-3.active~#draft-3-minimize:not(:checked)~main .activate:not(.tab-draft-3 .activate),
+#draft-3.active.no-tab~main .activate:not(.tab-draft-3 .activate) {
+    z-index: 1;
+}
+
+#draft-3.active~#draft-3-minimize:not(:checked)~main .tab label:not(.tab-draft-3 label),
+#draft-3.active.no-tab~main .tab label:not(.tab-draft-3 label) {
+    z-index: 0;
+}
+
+#draft-3-minimize:active~main #window-draft-3 .window-inside .minimize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#draft-3-minimize:checked~main #window-draft-3 {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+}
+
+#draft-3-maximize:active~main #window-draft-3 .window-inside .maximize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#draft-3-maximize:checked~main #window-draft-3 {
+    left: unset !important;
+    top: 0 !important;
+}
+
+#draft-3-maximize:checked~main #window-draft-3 .window-inside {
+    max-width: calc(100vw - 12px);
+    width: calc(100vw - 12px) !important;
+    height: calc(100vh - 44px - 12px) !important;
+}
+
+#draft-3-maximize:checked~main #window-draft-3 .window-inside .maximize:before,
+#draft-3-maximize:checked~main #window-draft-3 .window-inside .maximize:after {
+    width: 9px;
+    height: 9px;
+}
+
+#draft-3-maximize:checked~main #window-draft-3 .window-inside .maximize:before {
+    visibility: visible;
+    top: 3px;
+    right: 6px;
+}
+
+#draft-3-maximize:checked~main #window-draft-3 .window-inside .maximize:after {
+    bottom: 4px;
+    left: 4px;
+}
+
+#draft-4:checked~main #window-draft-4 {
+    will-change: transform;
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+#draft-4:checked~main .tab-draft-4 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+#draft-4:checked~main .menu .label-draft-4 {
+    pointer-events: none;
+}
+
+#draft-4.active~#draft-4-minimize:not(:checked)~main #window-draft-4,
+#draft-4.active.no-tab~main #window-draft-4 {
+    z-index: 10;
+}
+
+#draft-4.active~#draft-4-minimize:not(:checked)~main #window-draft-4 .window-nav,
+#draft-4.active.no-tab~main #window-draft-4 .window-nav {
+    background-color: var(--navbar-active-color);
+}
+
+#draft-4.active~#draft-4-minimize:not(:checked)~main .window[data-window]:not(#window-draft-4),
+#draft-4.active.no-tab~main .window[data-window]:not(#window-draft-4) {
+    z-index: 2;
+}
+
+#draft-4.active~#draft-4-minimize:not(:checked)~main .tab-draft-4 label,
+#draft-4.active.no-tab~main .tab-draft-4 label {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: #cac6cb;
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-image: linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-size: 3px 3px;
+    background-position: 0 0, 1.5px 1.5px;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+#draft-4.active~#draft-4-minimize:not(:checked)~main .activate:not(.tab-draft-4 .activate),
+#draft-4.active.no-tab~main .activate:not(.tab-draft-4 .activate) {
+    z-index: 1;
+}
+
+#draft-4.active~#draft-4-minimize:not(:checked)~main .tab label:not(.tab-draft-4 label),
+#draft-4.active.no-tab~main .tab label:not(.tab-draft-4 label) {
+    z-index: 0;
+}
+
+#draft-4-minimize:active~main #window-draft-4 .window-inside .minimize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#draft-4-minimize:checked~main #window-draft-4 {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+}
+
+#draft-4-maximize:active~main #window-draft-4 .window-inside .maximize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#draft-4-maximize:checked~main #window-draft-4 {
+    left: unset !important;
+    top: 0 !important;
+}
+
+#draft-4-maximize:checked~main #window-draft-4 .window-inside {
+    max-width: calc(100vw - 12px);
+    width: calc(100vw - 12px) !important;
+    height: calc(100vh - 44px - 12px) !important;
+}
+
+#draft-4-maximize:checked~main #window-draft-4 .window-inside .maximize:before,
+#draft-4-maximize:checked~main #window-draft-4 .window-inside .maximize:after {
+    width: 9px;
+    height: 9px;
+}
+
+#draft-4-maximize:checked~main #window-draft-4 .window-inside .maximize:before {
+    visibility: visible;
+    top: 3px;
+    right: 6px;
+}
+
+#draft-4-maximize:checked~main #window-draft-4 .window-inside .maximize:after {
+    bottom: 4px;
+    left: 4px;
+}
+
+#egg-1:checked~main #window-egg-1 {
+    will-change: transform;
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+#egg-1:checked~main .tab-egg-1 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+#egg-1:checked~main .menu .label-egg-1 {
+    pointer-events: none;
+}
+
+#egg-1.active~#egg-1-minimize:not(:checked)~main #window-egg-1,
+#egg-1.active.no-tab~main #window-egg-1 {
+    z-index: 10;
+}
+
+#egg-1.active~#egg-1-minimize:not(:checked)~main #window-egg-1 .window-nav,
+#egg-1.active.no-tab~main #window-egg-1 .window-nav {
+    background-color: var(--navbar-active-color);
+}
+
+#egg-1.active~#egg-1-minimize:not(:checked)~main .window[data-window]:not(#window-egg-1),
+#egg-1.active.no-tab~main .window[data-window]:not(#window-egg-1) {
+    z-index: 2;
+}
+
+#egg-1.active~#egg-1-minimize:not(:checked)~main .tab-egg-1 label,
+#egg-1.active.no-tab~main .tab-egg-1 label {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: #cac6cb;
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-image: linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-size: 3px 3px;
+    background-position: 0 0, 1.5px 1.5px;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+#egg-1.active~#egg-1-minimize:not(:checked)~main .activate:not(.tab-egg-1 .activate),
+#egg-1.active.no-tab~main .activate:not(.tab-egg-1 .activate) {
+    z-index: 1;
+}
+
+#egg-1.active~#egg-1-minimize:not(:checked)~main .tab label:not(.tab-egg-1 label),
+#egg-1.active.no-tab~main .tab label:not(.tab-egg-1 label) {
+    z-index: 0;
+}
+
+#egg-1-minimize:active~main #window-egg-1 .window-inside .minimize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#egg-1-minimize:checked~main #window-egg-1 {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+}
+
+#egg-1-maximize:active~main #window-egg-1 .window-inside .maximize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#egg-1-maximize:checked~main #window-egg-1 {
+    left: unset !important;
+    top: 0 !important;
+}
+
+#egg-1-maximize:checked~main #window-egg-1 .window-inside {
+    max-width: calc(100vw - 12px);
+    width: calc(100vw - 12px) !important;
+    height: calc(100vh - 44px - 12px) !important;
+}
+
+#egg-1-maximize:checked~main #window-egg-1 .window-inside .maximize:before,
+#egg-1-maximize:checked~main #window-egg-1 .window-inside .maximize:after {
+    width: 9px;
+    height: 9px;
+}
+
+#egg-1-maximize:checked~main #window-egg-1 .window-inside .maximize:before {
+    visibility: visible;
+    top: 3px;
+    right: 6px;
+}
+
+#egg-1-maximize:checked~main #window-egg-1 .window-inside .maximize:after {
+    bottom: 4px;
+    left: 4px;
+}
+
+#egg-2:checked~main #window-egg-2 {
+    will-change: transform;
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+#egg-2:checked~main .tab-egg-2 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+#egg-2:checked~main .menu .label-egg-2 {
+    pointer-events: none;
+}
+
+#egg-2.active~#egg-2-minimize:not(:checked)~main #window-egg-2,
+#egg-2.active.no-tab~main #window-egg-2 {
+    z-index: 10;
+}
+
+#egg-2.active~#egg-2-minimize:not(:checked)~main #window-egg-2 .window-nav,
+#egg-2.active.no-tab~main #window-egg-2 .window-nav {
+    background-color: var(--navbar-active-color);
+}
+
+#egg-2.active~#egg-2-minimize:not(:checked)~main .window[data-window]:not(#window-egg-2),
+#egg-2.active.no-tab~main .window[data-window]:not(#window-egg-2) {
+    z-index: 2;
+}
+
+#egg-2.active~#egg-2-minimize:not(:checked)~main .tab-egg-2 label,
+#egg-2.active.no-tab~main .tab-egg-2 label {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: #cac6cb;
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-image: linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-size: 3px 3px;
+    background-position: 0 0, 1.5px 1.5px;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+#egg-2.active~#egg-2-minimize:not(:checked)~main .activate:not(.tab-egg-2 .activate),
+#egg-2.active.no-tab~main .activate:not(.tab-egg-2 .activate) {
+    z-index: 1;
+}
+
+#egg-2.active~#egg-2-minimize:not(:checked)~main .tab label:not(.tab-egg-2 label),
+#egg-2.active.no-tab~main .tab label:not(.tab-egg-2 label) {
+    z-index: 0;
+}
+
+#egg-2-minimize:active~main #window-egg-2 .window-inside .minimize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#egg-2-minimize:checked~main #window-egg-2 {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+}
+
+#egg-2-maximize:active~main #window-egg-2 .window-inside .maximize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#egg-2-maximize:checked~main #window-egg-2 {
+    left: unset !important;
+    top: 0 !important;
+}
+
+#egg-2-maximize:checked~main #window-egg-2 .window-inside {
+    max-width: calc(100vw - 12px);
+    width: calc(100vw - 12px) !important;
+    height: calc(100vh - 44px - 12px) !important;
+}
+
+#egg-2-maximize:checked~main #window-egg-2 .window-inside .maximize:before,
+#egg-2-maximize:checked~main #window-egg-2 .window-inside .maximize:after {
+    width: 9px;
+    height: 9px;
+}
+
+#egg-2-maximize:checked~main #window-egg-2 .window-inside .maximize:before {
+    visibility: visible;
+    top: 3px;
+    right: 6px;
+}
+
+#egg-2-maximize:checked~main #window-egg-2 .window-inside .maximize:after {
+    bottom: 4px;
+    left: 4px;
+}
+
+#egg-3:checked~main #window-egg-3 {
+    will-change: transform;
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+#egg-3:checked~main .tab-egg-3 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+#egg-3:checked~main .menu .label-egg-3 {
+    pointer-events: none;
+}
+
+#egg-3.active~#egg-3-minimize:not(:checked)~main #window-egg-3,
+#egg-3.active.no-tab~main #window-egg-3 {
+    z-index: 10;
+}
+
+#egg-3.active~#egg-3-minimize:not(:checked)~main #window-egg-3 .window-nav,
+#egg-3.active.no-tab~main #window-egg-3 .window-nav {
+    background-color: var(--navbar-active-color);
+}
+
+#egg-3.active~#egg-3-minimize:not(:checked)~main .window[data-window]:not(#window-egg-3),
+#egg-3.active.no-tab~main .window[data-window]:not(#window-egg-3) {
+    z-index: 2;
+}
+
+#egg-3.active~#egg-3-minimize:not(:checked)~main .tab-egg-3 label,
+#egg-3.active.no-tab~main .tab-egg-3 label {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: #cac6cb;
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-image: linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-size: 3px 3px;
+    background-position: 0 0, 1.5px 1.5px;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+#egg-3.active~#egg-3-minimize:not(:checked)~main .activate:not(.tab-egg-3 .activate),
+#egg-3.active.no-tab~main .activate:not(.tab-egg-3 .activate) {
+    z-index: 1;
+}
+
+#egg-3.active~#egg-3-minimize:not(:checked)~main .tab label:not(.tab-egg-3 label),
+#egg-3.active.no-tab~main .tab label:not(.tab-egg-3 label) {
+    z-index: 0;
+}
+
+#egg-3-minimize:active~main #window-egg-3 .window-inside .minimize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#egg-3-minimize:checked~main #window-egg-3 {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+}
+
+#egg-3-maximize:active~main #window-egg-3 .window-inside .maximize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#egg-3-maximize:checked~main #window-egg-3 {
+    left: unset !important;
+    top: 0 !important;
+}
+
+#egg-3-maximize:checked~main #window-egg-3 .window-inside {
+    max-width: calc(100vw - 12px);
+    width: calc(100vw - 12px) !important;
+    height: calc(100vh - 44px - 12px) !important;
+}
+
+#egg-3-maximize:checked~main #window-egg-3 .window-inside .maximize:before,
+#egg-3-maximize:checked~main #window-egg-3 .window-inside .maximize:after {
+    width: 9px;
+    height: 9px;
+}
+
+#egg-3-maximize:checked~main #window-egg-3 .window-inside .maximize:before {
+    visibility: visible;
+    top: 3px;
+    right: 6px;
+}
+
+#egg-3-maximize:checked~main #window-egg-3 .window-inside .maximize:after {
+    bottom: 4px;
+    left: 4px;
+}
+
+#egg-4:checked~main #window-egg-4 {
+    will-change: transform;
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+#egg-4:checked~main .tab-egg-4 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+#egg-4:checked~main .menu .label-egg-4 {
+    pointer-events: none;
+}
+
+#egg-4.active~#egg-4-minimize:not(:checked)~main #window-egg-4,
+#egg-4.active.no-tab~main #window-egg-4 {
+    z-index: 10;
+}
+
+#egg-4.active~#egg-4-minimize:not(:checked)~main #window-egg-4 .window-nav,
+#egg-4.active.no-tab~main #window-egg-4 .window-nav {
+    background-color: var(--navbar-active-color);
+}
+
+#egg-4.active~#egg-4-minimize:not(:checked)~main .window[data-window]:not(#window-egg-4),
+#egg-4.active.no-tab~main .window[data-window]:not(#window-egg-4) {
+    z-index: 2;
+}
+
+#egg-4.active~#egg-4-minimize:not(:checked)~main .tab-egg-4 label,
+#egg-4.active.no-tab~main .tab-egg-4 label {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: #cac6cb;
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-image: linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-size: 3px 3px;
+    background-position: 0 0, 1.5px 1.5px;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+#egg-4.active~#egg-4-minimize:not(:checked)~main .activate:not(.tab-egg-4 .activate),
+#egg-4.active.no-tab~main .activate:not(.tab-egg-4 .activate) {
+    z-index: 1;
+}
+
+#egg-4.active~#egg-4-minimize:not(:checked)~main .tab label:not(.tab-egg-4 label),
+#egg-4.active.no-tab~main .tab label:not(.tab-egg-4 label) {
+    z-index: 0;
+}
+
+#egg-4-minimize:active~main #window-egg-4 .window-inside .minimize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#egg-4-minimize:checked~main #window-egg-4 {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+}
+
+#egg-4-maximize:active~main #window-egg-4 .window-inside .maximize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#egg-4-maximize:checked~main #window-egg-4 {
+    left: unset !important;
+    top: 0 !important;
+}
+
+#egg-4-maximize:checked~main #window-egg-4 .window-inside {
+    max-width: calc(100vw - 12px);
+    width: calc(100vw - 12px) !important;
+    height: calc(100vh - 44px - 12px) !important;
+}
+
+#egg-4-maximize:checked~main #window-egg-4 .window-inside .maximize:before,
+#egg-4-maximize:checked~main #window-egg-4 .window-inside .maximize:after {
+    width: 9px;
+    height: 9px;
+}
+
+#egg-4-maximize:checked~main #window-egg-4 .window-inside .maximize:before {
+    visibility: visible;
+    top: 3px;
+    right: 6px;
+}
+
+#egg-4-maximize:checked~main #window-egg-4 .window-inside .maximize:after {
+    bottom: 4px;
+    left: 4px;
+}
+
+#egg-5:checked~main #window-egg-5 {
+    will-change: transform;
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+#egg-5:checked~main .tab-egg-5 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+#egg-5:checked~main .menu .label-egg-5 {
+    pointer-events: none;
+}
+
+#egg-5.active~#egg-5-minimize:not(:checked)~main #window-egg-5,
+#egg-5.active.no-tab~main #window-egg-5 {
+    z-index: 10;
+}
+
+#egg-5.active~#egg-5-minimize:not(:checked)~main #window-egg-5 .window-nav,
+#egg-5.active.no-tab~main #window-egg-5 .window-nav {
+    background-color: var(--navbar-active-color);
+}
+
+#egg-5.active~#egg-5-minimize:not(:checked)~main .window[data-window]:not(#window-egg-5),
+#egg-5.active.no-tab~main .window[data-window]:not(#window-egg-5) {
+    z-index: 2;
+}
+
+#egg-5.active~#egg-5-minimize:not(:checked)~main .tab-egg-5 label,
+#egg-5.active.no-tab~main .tab-egg-5 label {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: #cac6cb;
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-image: linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-size: 3px 3px;
+    background-position: 0 0, 1.5px 1.5px;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+#egg-5.active~#egg-5-minimize:not(:checked)~main .activate:not(.tab-egg-5 .activate),
+#egg-5.active.no-tab~main .activate:not(.tab-egg-5 .activate) {
+    z-index: 1;
+}
+
+#egg-5.active~#egg-5-minimize:not(:checked)~main .tab label:not(.tab-egg-5 label),
+#egg-5.active.no-tab~main .tab label:not(.tab-egg-5 label) {
+    z-index: 0;
+}
+
+#egg-5-minimize:active~main #window-egg-5 .window-inside .minimize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#egg-5-minimize:checked~main #window-egg-5 {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+}
+
+#egg-5-maximize:active~main #window-egg-5 .window-inside .maximize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#egg-5-maximize:checked~main #window-egg-5 {
+    left: unset !important;
+    top: 0 !important;
+}
+
+#egg-5-maximize:checked~main #window-egg-5 .window-inside {
+    max-width: calc(100vw - 12px);
+    width: calc(100vw - 12px) !important;
+    height: calc(100vh - 44px - 12px) !important;
+}
+
+#egg-5-maximize:checked~main #window-egg-5 .window-inside .maximize:before,
+#egg-5-maximize:checked~main #window-egg-5 .window-inside .maximize:after {
+    width: 9px;
+    height: 9px;
+}
+
+#egg-5-maximize:checked~main #window-egg-5 .window-inside .maximize:before {
+    visibility: visible;
+    top: 3px;
+    right: 6px;
+}
+
+#egg-5-maximize:checked~main #window-egg-5 .window-inside .maximize:after {
+    bottom: 4px;
+    left: 4px;
+}
+
+#egg-6:checked~main #window-egg-6 {
+    will-change: transform;
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+#egg-6:checked~main .tab-egg-6 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+#egg-6:checked~main .menu .label-egg-6 {
+    pointer-events: none;
+}
+
+#egg-6.active~#egg-6-minimize:not(:checked)~main #window-egg-6,
+#egg-6.active.no-tab~main #window-egg-6 {
+    z-index: 10;
+}
+
+#egg-6.active~#egg-6-minimize:not(:checked)~main #window-egg-6 .window-nav,
+#egg-6.active.no-tab~main #window-egg-6 .window-nav {
+    background-color: var(--navbar-active-color);
+}
+
+#egg-6.active~#egg-6-minimize:not(:checked)~main .window[data-window]:not(#window-egg-6),
+#egg-6.active.no-tab~main .window[data-window]:not(#window-egg-6) {
+    z-index: 2;
+}
+
+#egg-6.active~#egg-6-minimize:not(:checked)~main .tab-egg-6 label,
+#egg-6.active.no-tab~main .tab-egg-6 label {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: #cac6cb;
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-image: linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-size: 3px 3px;
+    background-position: 0 0, 1.5px 1.5px;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+#egg-6.active~#egg-6-minimize:not(:checked)~main .activate:not(.tab-egg-6 .activate),
+#egg-6.active.no-tab~main .activate:not(.tab-egg-6 .activate) {
+    z-index: 1;
+}
+
+#egg-6.active~#egg-6-minimize:not(:checked)~main .tab label:not(.tab-egg-6 label),
+#egg-6.active.no-tab~main .tab label:not(.tab-egg-6 label) {
+    z-index: 0;
+}
+
+#egg-6-minimize:active~main #window-egg-6 .window-inside .minimize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#egg-6-minimize:checked~main #window-egg-6 {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+}
+
+#egg-6-maximize:active~main #window-egg-6 .window-inside .maximize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#egg-6-maximize:checked~main #window-egg-6 {
+    left: unset !important;
+    top: 0 !important;
+}
+
+#egg-6-maximize:checked~main #window-egg-6 .window-inside {
+    max-width: calc(100vw - 12px);
+    width: calc(100vw - 12px) !important;
+    height: calc(100vh - 44px - 12px) !important;
+}
+
+#egg-6-maximize:checked~main #window-egg-6 .window-inside .maximize:before,
+#egg-6-maximize:checked~main #window-egg-6 .window-inside .maximize:after {
+    width: 9px;
+    height: 9px;
+}
+
+#egg-6-maximize:checked~main #window-egg-6 .window-inside .maximize:before {
+    visibility: visible;
+    top: 3px;
+    right: 6px;
+}
+
+#egg-6-maximize:checked~main #window-egg-6 .window-inside .maximize:after {
+    bottom: 4px;
+    left: 4px;
+}
+
+#egg-7:checked~main #window-egg-7 {
+    will-change: transform;
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+#egg-7:checked~main .tab-egg-7 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+#egg-7:checked~main .menu .label-egg-7 {
+    pointer-events: none;
+}
+
+#egg-7.active~#egg-7-minimize:not(:checked)~main #window-egg-7,
+#egg-7.active.no-tab~main #window-egg-7 {
+    z-index: 10;
+}
+
+#egg-7.active~#egg-7-minimize:not(:checked)~main #window-egg-7 .window-nav,
+#egg-7.active.no-tab~main #window-egg-7 .window-nav {
+    background-color: var(--navbar-active-color);
+}
+
+#egg-7.active~#egg-7-minimize:not(:checked)~main .window[data-window]:not(#window-egg-7),
+#egg-7.active.no-tab~main .window[data-window]:not(#window-egg-7) {
+    z-index: 2;
+}
+
+#egg-7.active~#egg-7-minimize:not(:checked)~main .tab-egg-7 label,
+#egg-7.active.no-tab~main .tab-egg-7 label {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: #cac6cb;
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-image: linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-size: 3px 3px;
+    background-position: 0 0, 1.5px 1.5px;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+#egg-7.active~#egg-7-minimize:not(:checked)~main .activate:not(.tab-egg-7 .activate),
+#egg-7.active.no-tab~main .activate:not(.tab-egg-7 .activate) {
+    z-index: 1;
+}
+
+#egg-7.active~#egg-7-minimize:not(:checked)~main .tab label:not(.tab-egg-7 label),
+#egg-7.active.no-tab~main .tab label:not(.tab-egg-7 label) {
+    z-index: 0;
+}
+
+#egg-7-minimize:active~main #window-egg-7 .window-inside .minimize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#egg-7-minimize:checked~main #window-egg-7 {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+}
+
+#egg-7-maximize:active~main #window-egg-7 .window-inside .maximize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#egg-7-maximize:checked~main #window-egg-7 {
+    left: unset !important;
+    top: 0 !important;
+}
+
+#egg-7-maximize:checked~main #window-egg-7 .window-inside {
+    max-width: calc(100vw - 12px);
+    width: calc(100vw - 12px) !important;
+    height: calc(100vh - 44px - 12px) !important;
+}
+
+#egg-7-maximize:checked~main #window-egg-7 .window-inside .maximize:before,
+#egg-7-maximize:checked~main #window-egg-7 .window-inside .maximize:after {
+    width: 9px;
+    height: 9px;
+}
+
+#egg-7-maximize:checked~main #window-egg-7 .window-inside .maximize:before {
+    visibility: visible;
+    top: 3px;
+    right: 6px;
+}
+
+#egg-7-maximize:checked~main #window-egg-7 .window-inside .maximize:after {
+    bottom: 4px;
+    left: 4px;
+}
+
+.menu-status-bar:checked~.window-inside .label-check.label-status-bar:before {
+    visibility: visible;
+}
+
+
+input[id*=error-]:checked~main #alerts {
+    z-index: 1000001;
+}
+
+
+#error-diskette-a:checked~main #alert-diskette-a {
+    will-change: transform;
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+#start-menu-outline {
+    visibility: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #a099a1;
+}
+
+.start-menu {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--taskbar-height);
+    background-color: var(--interface-color);
+    box-shadow: inset 0 1.5px 0 0 var(--interface-color), inset 0 3px 0 0 var(--interface-color-lighter);
+    padding-top: 3px;
+}
+
+.start-menu a {
+    text-decoration: none;
+    color: var(--text-main-color);
+}
+
+.start-menu .menu-container,
+.start-menu .sub-menu {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--black), inset 1.5px 1.5px 0 0 var(--white), inset -3px -3px 0 0 var(--interface-color-light), inset 3px 3px 0 0 var(--interface-color-lighter);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: var(--interface-color);
+    position: absolute;
+    padding: 4px;
+}
+
+.start-menu .menu li {
+    position: relative;
+}
+
+.start-menu .menu li:hover>label,
+.start-menu .menu li:hover>a {
+    background-color: #577783;
+    color: var(--white);
+}
+
+.start-menu .menu label,
+.start-menu .menu a {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    width: 200px;
+    padding-left: 8px;
+    height: 32px;
+}
+
+.start-menu .menu label:before,
+.start-menu .menu a:before {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.start-menu .menu label:hover,
+.start-menu .menu a:hover {
+    background-color: #577783;
+    color: var(--white);
+}
+
+.start-menu .menu label.label-empty,
+.start-menu .menu a.label-empty {
+    justify-content: center;
+    padding-left: 0;
+}
+
+.start-menu .menu label.label-empty:before,
+.start-menu .menu label.label-empty:after,
+.start-menu .menu a.label-empty:before,
+.start-menu .menu a.label-empty:after {
+    display: none;
+}
+
+.start-menu .menu label.label-disabled,
+.start-menu .menu label.label-disabled:hover,
+.start-menu .menu label.label-empty,
+.start-menu .menu label.label-empty:hover,
+.start-menu .menu a.label-disabled,
+.start-menu .menu a.label-disabled:hover,
+.start-menu .menu a.label-empty,
+.start-menu .menu a.label-empty:hover {
+    color: #85888c;
+}
+
+.start-menu .menu-container {
+    visibility: hidden;
+    display: flex;
+    align-items: stretch;
+    z-index: -1;
+    bottom: 38px;
+    left: 4px;
+}
+
+.start-menu .menu-container:before {
+    content: "";
+    display: block;
+    background-color: #8e9699;
+    width: 32px;
+}
+
+.start-menu .menu-container .sub-menu {
+    visibility: hidden;
+    z-index: -1;
+    display: block;
+    top: -4px;
+    left: calc(100% - 4px);
+    margin: 0;
+}
+
+.start-menu .menu-container .main-menu>li:nth-last-child(2) {
+    border-bottom: 1.5px solid var(--interface-color-light);
+}
+
+.start-menu .menu-container .main-menu>li:last-child {
+    border-top: 1.5px solid var(--white);
+}
+
+.start-menu .menu-container .main-menu>li>label,
+.start-menu .menu-container .main-menu>li>a {
+    height: 50px;
+}
+
+.start-menu .label-start {
+    font-weight: bold;
+    margin-left: 4px;
+}
+
+.start-menu .label-start:before {
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+    background-image: url("/icons/NMA_WHITE_LOGO.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.start-menu .label-start,
+.start-menu .tabs label {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--black), inset 1.5px 1.5px 0 0 var(--interface-color-lighter), inset -3px -3px 0 0 var(--interface-color-darker), inset 3px 3px 0 0 var(--interface-color);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: var(--interface-color);
+    padding: 0 0.8em !important;
+    background-color: var(--interface-color);
+}
+
+.label-start:active {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    outline: 1px dotted #263238;
+    outline-width: 1px;
+    outline-offset: -6px;
+}
+
+.start-menu .tabs {
+    display: flex;
+    width: calc(100% - 75px - 123px - 6px);
+}
+
+.start-menu .tabs .tab {
+    flex-basis: 200px;
+    display: none;
+    position: relative;
+    overflow: hidden;
+    margin-left: 4px;
+}
+
+.start-menu .tabs .activate {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.start-menu .tabs label {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.start-menu .tabs label span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.start-menu .tabs label:before {
+    height: 50px;
+    margin-right: 3px;
+}
+
+.start-menu .tabs label:active {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: var(--interface-color);
+    background-color: transparent;
+    background-image: linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-size: 3px 3px;
+    background-position: 0 0, 1.5px 1.5px;
+    justify-content: flex-start;
+}
+
+.start-menu .time {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-shadow: inset -1.5px -1.5px 0 0 var(--interface-color-lighter), inset 1.5px 1.5px 0 0 var(--interface-color-darker);
+    display: grid;
+    place-items: center;
+    height: 50px;
+    width: 100px;
+    margin: 0 3px;
+}
+
+#start-menu {
+    z-index: 1000000;
+}
+
+::-webkit-scrollbar {
+    width: 24px;
+    height: 24px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--white);
+    background-image: linear-gradient(45deg, #efeef0 25%, transparent 25%, transparent 75%, #efeef0 75%, #efeef0), linear-gradient(45deg, #efeef0 25%, transparent 25%, transparent 75%, #efeef0 75%, #efeef0);
+    background-size: 2px 2px;
+    background-position: 0 0, 1px 1px;
+}
+
+::-webkit-scrollbar-thumb {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--black), inset 1.5px 1.5px 0 0 var(--white), inset -3px -3px 0 0 var(--interface-color-light), inset 3px 3px 0 0 var(--interface-color-lighter);
+    width: 24px;
+    height: 24px;
+    background-color: var(--interface-color);
+    z-index: 1;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: var(--interface-color);
+}
+
+::-webkit-resizer {
+    width: 24px;
+    height: 24px;
+    background-color: var(--interface-color);
+    background-color: transparent;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAN0lEQVR4Ae3MgQUAMBRDwU5fFF05lb/CARTBw2Ulof0DxPtcwp3hNuEYnjbcEW4TjuFpwx3h9gMWGgZ2Y/PT2gAAAABJRU5ErkJggg==");
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+}
+
+::-webkit-scrollbar-button {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--black), inset 1.5px 1.5px 0 0 var(--white), inset -3px -3px 0 0 var(--interface-color-light), inset 3px 3px 0 0 var(--interface-color-lighter);
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-color: var(--interface-color);
+    image-rendering: pixelated;
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+::-webkit-scrollbar-button:active {
+    background-position: 2px 2px;
+}
+
+::-webkit-scrollbar-button:horizontal:decrement {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAPUlEQVQokWP8//8/AymAiSTVhDSoGVtgWI9TAzbFODXgUoxVAz7FWDXcOnuCkSQNhDTh9DQuTYwDG3HYAACS4BOhZHfptgAAAABJRU5ErkJggg==");
+}
+
+::-webkit-scrollbar-button:horizontal:increment {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAWElEQVQokWP8//8/AymAiSTVDAwMLOgCasYW/xkYGBhh/FtnTxBlA053Ymjg/vcTryYMDV+Z2PHahNPTUJsY0cVxavjKxI6hGJ8GrIoZGBgYGGkecSRrAABJOBMT7b9GFQAAAABJRU5ErkJggg==");
+}
+
+::-webkit-scrollbar-button:vertical:decrement {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAMElEQVQokWP8//8/AymAiSTVA6dBzdgCp8cwNMAU49LEhE0xPpuY8EliE2ccBvEAAGLfEQE9MAhjAAAAAElFTkSuQmCC");
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAOklEQVQokWP8//8/AymAiSTVdNHAAmOoGVvg9MytsycYsdnAiEUthji6k9A1YRiCzQ+MaDSq5DCIBwDz6goZAxDEewAAAABJRU5ErkJggg==");
+}
+
+::-webkit-scrollbar-button:horizontal:increment:start {
+    display: none;
+}
+
+::-webkit-scrollbar-button:horizontal:decrement:end {
+    display: none;
+}
+
+::-webkit-scrollbar-button:vertical:increment:start {
+    display: none;
+}
+
+::-webkit-scrollbar-button:vertical:decrement:end {
+    display: none;
+}
+
+::-webkit-scrollbar-button:active {
+    border: 1.5px solid var(--interface-color-light);
+    box-shadow: none;
+}
