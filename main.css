@@ -30,7 +30,7 @@
     --navbar-active-color: #0b763f;
     --interface-color: #43c743;
     --interface-color-light: #d3ba40;
-    --interface-color-lighter: #ecb286;
+    --interface-color-lighter: #f3e9b4;
     --interface-color-darker: #9c3f17;
     --taskbar-height: 65px;
 }
@@ -150,27 +150,27 @@ label[tabindex] span span {
 }
 
 .label-computer:before {
-    background-image: url("/icons/folder.png");
+    background-image: url("icons/folder.png");
     background-repeat: no-repeat;
 }
 
 .label-face:before {
-    background-image: url("/icons/face.png");
+    background-image: url("icons/face.png");
     background-repeat: no-repeat;
 }
 
 .label-recycle-bin:before {
-    background-image: url("/icons/bin.png");
+    background-image: url("icons/bin.png");
     background-repeat: no-repeat;
 }
 
 .label-asset:before {
-    background-image: url("/icons/asset.png");
+    background-image: url("icons/asset.png");
     background-repeat: no-repeat;
 }
 
 .label-text:before {
-    background-image: url("/icons/text.png");
+    background-image: url("icons/text.png");
     background-repeat: no-repeat;
 }
 
@@ -3473,7 +3473,7 @@ input[id*=error-]:checked~main #alerts {
     width: 50px;
     height: 50px;
     margin-right: 5px;
-    background-image: url("/icons/NMA_WHITE_LOGO.png");
+    background-image: url("icons/NMA_WHITE_LOGO.png");
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -3573,6 +3573,7 @@ input[id*=error-]:checked~main #alerts {
     z-index: 1000000;
 }
 
+
 ::-webkit-scrollbar {
     width: 24px;
     height: 24px;
@@ -3580,7 +3581,7 @@ input[id*=error-]:checked~main #alerts {
 
 ::-webkit-scrollbar-track {
     background-color: var(--white);
-    background-image: linear-gradient(45deg, #efeef0 25%, transparent 25%, transparent 75%, #efeef0 75%, #efeef0), linear-gradient(45deg, #efeef0 25%, transparent 25%, transparent 75%, #efeef0 75%, #efeef0);
+    background-image: linear-gradient(45deg, var(--interface-color-lighter) 25%, transparent 25%, transparent 75%, var(--interface-color-lighter) 75%, var(--interface-color-lighter)), linear-gradient(45deg, var(--interface-color-lighter) 25%, transparent 25%, transparent 75%, var(--interface-color-lighter) 75%, var(--interface-color-lighter));
     background-size: 2px 2px;
     background-position: 0 0, 1px 1px;
 }
