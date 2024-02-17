@@ -85,12 +85,23 @@ body {
 }
 
 p,
-.text,
-.text h2,
-.text h3,
-.text h4 {
+.text {
     font-family: "Asap", "Roboto", Helvetica, Arial, sans-serif;
     line-height: 1.5;
+}
+
+h2 {
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+h4 {
+    margin: 0;
 }
 
 [hidden] {
@@ -332,8 +343,7 @@ label[tabindex] span span {
     top: 0;
     left: 0;
     width: 100%;
-    height: calc(100% + var(--taskbar-height));
-    padding-bottom: var(--taskbar-height);
+    height: 100%;
 }
 
 .window,
@@ -512,6 +522,11 @@ label[tabindex] span span {
 .window-text .window-inside {
     width: 60vw;
     height: 75vh;
+}
+
+.window-video .window-inside {
+    width: 60vw;
+    height: 85vh;
 }
 
 .window-content {
@@ -3660,4 +3675,21 @@ input[id*=error-]:checked~main #alerts {
 ::-webkit-scrollbar-button:active {
     border: 1.5px solid var(--interface-color-light);
     box-shadow: none;
+}
+
+.vid-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    margin-bottom: 1em;
+}
+
+.vid-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
