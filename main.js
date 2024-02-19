@@ -130,8 +130,8 @@ const date = new Date();
 const hour = date.getHours();
 
 const updateColors = () => {
-	let interfaceColor = "hsl("+(120-(hour*2))+","+(54+(hour*0.5))+"%,"+(50-(hour*0.5))+"%)";
-	body.style.backgroundImage = "linear-gradient(0deg, hsla(359, 98%, 22%,"+((hour-1)*0.02)+"), hsla(0, 93%, 24%,"+((hour-1)*0.035)+"), hsla(0, 93%, 24%,"+((hour-1)*0.04166)+"), hsla(0, 93%, 24%,"+((hour-1)*0.039)+")), url('images/silviakeyimage-2.png')"; 
+	let interfaceColor = "hsl("+(120-(hour*2))+","+(54+(hour*0.5))+"%,"+(50-(hour*0.6))+"%)";
+	body.style.backgroundImage = "linear-gradient(0deg, hsla(359, 98%, 22%,"+((hour-1)*0.02)+"), hsla(0, 93%, 24%,"+((hour-1)*0.035)+"), hsla(0, 95%, 24%,"+((hour-1)*0.04166)+"), hsla(0, 100%, 40%,"+((hour-1)*0.037)+")), url('images/silviakeyimage-2.png')"; 
 	root.style.setProperty('--interface-color', interfaceColor);
 }
 updateColors();
