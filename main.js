@@ -136,18 +136,3 @@ const updateColors = () => {
 }
 updateColors();
 setInterval(() => updateColors(), 1000);
-//if (hour > 17){
-//	root.style.setProperty('--text-main-color', "white");}
-//if (hour < 2) {
-//  body.style.backgroundImage = "linear-gradient(0deg, hsla(359, 98%, 22%, 0), hsla(0, 93%, 24%, 0.3), hsla(0, 93%, 24%, 0.6), hsla(0, 93%, 24%, 0.4)), url('images/silviakeyimage-2.png')";
-//} else if (hour > 5) {
-//  body.style.backgroundImage = "linear-gradient(0deg, hsla(359, 98%, 22%, 0), hsla(0, 93%, 24%, 0), hsla(0, 93%, 24%, 0.1), hsla(0, 93%, 24%, 0)), url('images/silviakeyimage-2.png')";
-//} else if (hour > 7) {
-//	body.style.backgroundImage = "linear-gradient(0deg, hsla(359, 98%, 22%, 0), hsla(0, 93%, 24%, 0.1), hsla(0, 93%, 24%, 0.2), hsla(0, 93%, 24%, 0.1)), url('images/silviakeyimage-2.png')";
-//} else if (hour > 7) {
-//	body.style.backgroundImage = "linear-gradient(0deg, hsla(359, 98%, 22%, 0), hsla(0, 93%, 24%, 0.1), hsla(0, 93%, 24%, 0.2), hsla(0, 93%, 24%, 0.1)), url('images/silviakeyimage-2.png')";
-//} else if (hour > 9) {
-//	body.style.backgroundImage = "linear-gradient(0deg, hsla(359, 98%, 22%, 0), hsla(0, 93%, 24%, 0.2), hsla(0, 93%, 24%, 0.3), hsla(0, 93%, 24%, 0.2)), url('images/silviakeyimage-2.png')";
-//} else if (hour > 9) {
-//	body.style.backgroundImage = "linear-gradient(0deg, hsla(359, 98%, 22%, 0), hsla(0, 93%, 24%, 0.2), hsla(0, 93%, 24%, 0.3), hsla(0, 93%, 24%, 0.2)), url('images/silviakeyimage-2.png')";
-//}
