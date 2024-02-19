@@ -2,8 +2,8 @@
 
 @font-face {
     font-family: 'Dina';
-    src: url('/fonts/DinaRemaster-Regular.woff2') format('woff2'),
-        url('/fonts/DinaRemaster-Regular.woff') format('woff');
+    src: url('fonts/DinaRemaster-Regular.woff2') format('woff2'),
+        url('fonts/DinaRemaster-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -11,8 +11,8 @@
 
 @font-face {
     font-family: 'DinaBold';
-    src: url('/fonts/DinaRemaster-Bold.woff2') format('woff2'),
-        url('/fonts/DinaRemaster-Bold.woff') format('woff');
+    src: url('fonts/DinaRemaster-Bold.woff2') format('woff2'),
+        url('fonts/DinaRemaster-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
