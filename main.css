@@ -26,8 +26,8 @@
     --text-secondary-color: #794100;
     --text-tertiary-color: #02384f;
     --bg-color: hsla(0, 93%, 24%, 1);
-    --navbar-color: #1d5237;
-    --navbar-active-color: #108b56;
+    --navbar-color: #162f22;
+    --navbar-active-color: #07462b;
     --interface-color: hsl(120, 54%, 52%);
     --interface-color-light: #d3ba40;
     --interface-color-lighter: #f3c2b4;
@@ -378,6 +378,11 @@ label[tabindex] span span {
 
 .window-nav {
     background-color: var(--navbar-color);
+    background-image: url("images/wires.png");
+    background-size: 140%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: color-dodge;
 }
 
 .alert-nav {
