@@ -43,7 +43,6 @@
     -ms-interpolation-mode: nearest-neighbor;
     image-rendering: -moz-crisp-edges;
     image-rendering: pixelated;
-    font-family: "DinaBold", monospace;
     font-size: 18px;
     text-decoration-thickness: 1.5px;
     text-underline-offset: 1px;
@@ -83,10 +82,13 @@ body {
     line-height: 1;
     overflow: hidden;
     transition: background-image 60s;
+    font-family: "DinaBold", monospace;
 }
 
 p,
-.text {
+.text,
+p strong,
+p em {
     font-family: "Asap", "Roboto", Helvetica, Arial, sans-serif;
     line-height: 1.5;
 }
@@ -293,12 +295,19 @@ label[tabindex] span span {
     text-align: center;
 }
 
+.desktop-eggs {
+    align-self: flex-end;
+    position: absolute;
+    right: 2em;
+}
+
 .desktop-icon:before,
 .desktop-icon:after {
     width: 6vw;
     height: 4.5vw;
     min-width: 40px;
     min-height: 40px;
+    cursor: pointer;
 }
 
 .label-recycle-bin:before,
@@ -451,6 +460,15 @@ label[tabindex] span span {
     width: 22px;
     height: 20px;
     background: var(--interface-color);
+    cursor: pointer;
+
+}
+
+.window-nav .buttons label:before,
+.window-nav .buttons label:after,
+.alert-nav .buttons label:before,
+.alert-nav .buttons label:after {
+    cursor: pointer;
 }
 
 .window-nav .buttons label[disabled],
@@ -548,8 +566,7 @@ label[tabindex] span span {
     padding: 1em;
 }
 
-.list-container,
-.text-container {
+.above-footer {
     box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--interface-color-light), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--black);
     padding: 3px;
     background: var(--white);
@@ -572,6 +589,27 @@ label[tabindex] span span {
     height: 100%;
     overflow: auto;
     padding: 1em;
+}
+
+.image {
+    height: 100%;
+    overflow: auto;
+    padding: 1em;
+}
+
+.image a img {
+    cursor: pointer;
+}
+
+.image img {
+    max-width: 100%;
+    -ms-interpolation-mode: bicubic;
+    image-rendering: auto;
+    image-rendering: smooth;
+}
+
+figcaption {
+    margin-top: 1rem;
 }
 
 .list li {
@@ -3552,6 +3590,7 @@ input[id*=error-]:checked~main #alerts {
     background: var(--interface-color);
     padding: 0 0.8em !important;
     background-color: var(--interface-color);
+    cursor: pointer;
 }
 
 .label-start:active {
@@ -3594,6 +3633,7 @@ input[id*=error-]:checked~main #alerts {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    cursor: pointer;
 }
 
 .start-menu .tabs label:before {

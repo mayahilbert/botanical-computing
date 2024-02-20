@@ -43,6 +43,15 @@
     <input data-name='recycle-bin' data-window-trigger hidden id='recycle-bin' type='checkbox'>
     <input data-minimize data-name='recycle-bin' hidden id='recycle-bin-minimize' type='checkbox'>
     <input data-maximize data-name='recycle-bin' hidden id='recycle-bin-maximize' type='checkbox'>
+    <input data-name='draft-1' data-window-trigger hidden id='draft-1' type='checkbox'>
+    <input data-minimize data-name='draft-1' hidden id='draft-1-minimize' type='checkbox'>
+    <input data-maximize data-name='draft-1' hidden id='draft-1-maximize' type='checkbox'>
+    <input data-name='egg-1' data-window-trigger hidden id='egg-1' type='checkbox'>
+    <input data-minimize data-name='egg-1' hidden id='egg-1-minimize' type='checkbox'>
+    <input data-maximize data-name='egg-1' hidden id='egg-1-maximize' type='checkbox'>
+    <input data-name='egg-2' data-window-trigger hidden id='egg-2' type='checkbox'>
+    <input data-minimize data-name='egg-2' hidden id='egg-2-minimize' type='checkbox'>
+    <input data-maximize data-name='egg-2' hidden id='egg-2-maximize' type='checkbox'>
     <input data-error-trigger data-name='critical' hidden id='error-critical' type='checkbox'>
     <main>
         <div id='desktop'>
@@ -53,6 +62,14 @@
                 <label class='desktop-icon label-recycle-bin' for='recycle-bin' tabindex='0'>
                     <span>Recycle Bin</span>
                 </label>
+                <div class="desktop-eggs">
+                    <label class='desktop-icon label-asset' for='egg-1' tabindex='0'>
+                        <span>?????????</span>
+                    </label>
+                    <label class='desktop-icon label-text' for='egg-2' tabindex='0'>
+                        <span>?????????</span>
+                    </label>
+                </div>
             </div>
             <div id='windows'>
                 <div class='window window-default' data-window id='window-computer'>
@@ -369,6 +386,82 @@
                         </div>
                     </div>
                 </div>
+                <div class='window window-text' data-window id='window-egg-1'>
+                    <div class='window-inside'>
+                        <nav class='window-nav'>
+                            <h2 class='label-egg-1-small'>
+                                <span>Silent Running</span>
+                            </h2>
+                            <div class='buttons'>
+                                <label class='minimize' for='egg-1-minimize' tabindex='0'></label>
+                                <label class='maximize' for='egg-1-maximize' tabindex='0'></label>
+                                <label class='close' for='egg-1' tabindex='0'></label>
+                            </div>
+                        </nav>
+                        <div class='window-content'>
+                            <div class='image-container above-footer'>
+                                <div class="image">
+                                    <figure>
+                                        <a href="https://en.wikipedia.org/wiki/Silent_Running">
+                                            <img src="images/silent-running.jpg"> </a>
+                                        <figcaption>Silent Running is a 1972 American environmental-themed science
+                                            fiction film.</figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='window window-text' data-window id='window-egg-2'>
+                    <div class='window-inside'>
+                        <nav class='window-nav'>
+                            <h2 class='label-egg-2-small'>
+                                <span>Vegetal Entwinements in Philosophy and Art</span>
+                            </h2>
+                            <div class='buttons'>
+                                <label class='minimize' for='egg-2-minimize' tabindex='0'></label>
+                                <label class='maximize' for='egg-2-maximize' tabindex='0'></label>
+                                <label class='close' for='egg-2' tabindex='0'></label>
+                            </div>
+                        </nav>
+                        <div class='window-content'>
+                            <div class='image-container above-footer'>
+                                <div class="image">
+                                    <figure>
+                                        <a
+                                            href="https://mitpress.mit.edu/9780262047791/vegetal-entwinements-in-philosophy-and-art/"><img
+                                                src="images/vegetal.jpg">
+                                        </a>
+                                        <figcaption>The first reader in critical plant studies, exploring a rapidly
+                                            growing
+                                            multidisciplinary field—the intersection of philosophy with plant science
+                                            and
+                                            the visual arts.</figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='window window-default' data-window id='window-draft-1'>
+                    <div class='window-inside'>
+                        <nav class='window-nav'>
+                            <h2 class='label-draft-1-small'>
+                                <span>draft_1</span>
+                            </h2>
+                            <div class='buttons'>
+                                <label class='minimize' for='draft-1-minimize' tabindex='0'></label>
+                                <label class='maximize' for='draft-1-maximize' tabindex='0'></label>
+                                <label class='close' for='draft-1' tabindex='0'></label>
+                            </div>
+                        </nav>
+                        <div class='window-content'>
+                            <div class='image-container above-footer'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class='start-menu-outline' id='start-menu-outline'></div>
@@ -429,33 +522,29 @@
                         <span>Recycle Bin</span>
                     </label>
                 </li>
+                <li class='tab tab-draft-1' data-tab>
+                    <span class='activate'></span>
+                    <label class='label-draft-1-small' for='draft-1-minimize'>
+                        <span>draft_1</span>
+                    </label>
+                </li>
+                <li class='tab tab-egg-1' data-tab>
+                    <span class='activate'></span>
+                    <label class='label-egg-1-small' for='egg-1-minimize'>
+                        <span>Silent Running</span>
+                    </label>
+                </li>
+                <li class='tab tab-egg-2' data-tab>
+                    <span class='activate'></span>
+                    <label class='label-egg-2-small' for='egg-2-minimize'>
+                        <span>Vegetal Entwinements in Philosophy and Art</span>
+                    </label>
+                </li>
             </menu>
             <div class='time'>
                 <time class='clock'>12:00 AM</time>
             </div>
         </nav>
-        <div id='alerts'>
-            <div class='alert' data-window id='alert-critical'>
-                <div class='alert-inside'>
-                    <div class='alert-nav'>
-                        <h2>
-                            <span>System Error</span>
-                        </h2>
-                        <div class='buttons'>
-                            <label class='close' for='error-critical'></label>
-                        </div>
-                    </div>
-                    <div class='alert-content'>
-                        <p>Critical error</p>
-                    </div>
-                    <footer class='alert-footer'>
-                        <label class='button' for='error-critical' tabindex='0'>
-                            <span>Okay</span>
-                        </label>
-                    </footer>
-                </div>
-            </div>
-        </div>
     </main>
 
     <script src="https://unpkg.com/draggabilly@3/dist/draggabilly.pkgd.min.js"></script>
