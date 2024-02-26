@@ -124,12 +124,20 @@ const updateTime = () => {
 }
 updateTime();
 setInterval(() => updateTime(), 1000);
-timeContainer.onclick = function(){   timeContainer.classList.toggle("sunlight"); }
 
 
 const body = document.querySelector('body');
 const date = new Date();
 const hour = date.getHours();
+if (hour > 7 && hour < 18) {
+timeContainer.onclick = function(){   
+	timeContainer.classList.toggle("sunlight"); 
+}
+} else {
+	timeContainer.onclick = function(){   
+		timeContainer.classList.toggle("moonlight");
+	}
+}
 
 const updateColors = () => {
 	let interfaceColor = "hsl("+(150-(hour*2))+","+(54+(hour*0.5))+"%,"+(50-(hour*0.6))+"%)";

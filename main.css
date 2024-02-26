@@ -222,6 +222,11 @@ label[tabindex] span span {
     background-repeat: no-repeat;
 }
 
+.label-snail:before {
+    background-image: url("icons/SnailPlant_Icon.png");
+    background-repeat: no-repeat;
+}
+
 .button {
     box-shadow: inset -1.5px -1.5px 0 0 var(--black), inset 1.5px 1.5px 0 0 var(--white), inset -3px -3px 0 0 var(--interface-color-light), inset 3px 3px 0 0 var(--interface-color);
     padding-bottom: 1.5px;
@@ -333,6 +338,7 @@ label[tabindex] span span {
     align-self: flex-end;
     position: absolute;
     right: 0;
+    bottom: -2vw;
     display: flex;
     flex-flow: wrap-reverse;
     justify-content: flex-end;
@@ -588,6 +594,11 @@ label[tabindex] span span {
     height: 50vh;
 }
 
+.window-default-wide .window-inside {
+    width: 50vw;
+    height: 40vh;
+}
+
 .window-text .window-inside {
     width: 60vw;
     height: 75vh;
@@ -731,7 +742,7 @@ figcaption {
     display: grid !important;
     grid-template-columns: repeat(auto-fill, 120px);
     row-gap: 24px;
-    padding: 9px 0;
+    padding: 1.5em 1em;
 }
 
 .list menu {
@@ -3721,18 +3732,18 @@ input[id*=error-]:checked~main #alerts {
     place-items: center;
     height: 50px;
     width: 100px;
-    margin: 0 3px;
+    margin: 0 6px;
     transition: 1s;
 }
 
 .start-menu .time.sunlight {
     background-color: yellow;
     box-shadow: 0 0 1px yellow;
-    animation: glow 4s infinite;
-    color: green;
+    animation: sunglow 4s infinite;
+    color: transparent;
 }
 
-@keyframes glow {
+@keyframes sunglow {
     0% {
         box-shadow: 0 0 1px yellow;
     }
@@ -3743,6 +3754,27 @@ input[id*=error-]:checked~main #alerts {
 
     100% {
         box-shadow: 0 0 1px yellow;
+    }
+}
+
+.start-menu .time.moonlight {
+    background-color: black;
+    box-shadow: 0 0 1px white;
+    animation: moonglow 4s infinite;
+    color: transparent;
+}
+
+@keyframes sunglow {
+    0% {
+        box-shadow: 0 0 1px white;
+    }
+
+    50% {
+        box-shadow: 0 0 10px white;
+    }
+
+    100% {
+        box-shadow: 0 0 1px white;
     }
 }
 
