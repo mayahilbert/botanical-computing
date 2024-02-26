@@ -10,6 +10,7 @@ desktop.addEventListener("click", e => {
 	});
 });
 
+
 let order = 0;
 let layer = 10;
 triggers.forEach(trigger=>{
@@ -115,7 +116,7 @@ windows.forEach(window=>{
 		});
 	}
 });
-
+const timeContainer = document.querySelector(".time");
 const time = document.querySelector(".clock");
 const updateTime = () => {
 	let date = luxon.DateTime.fromJSDate(new Date()).toLocaleString(luxon.DateTime.TIME_SIMPLE);
@@ -123,6 +124,7 @@ const updateTime = () => {
 }
 updateTime();
 setInterval(() => updateTime(), 1000);
+timeContainer.onclick = function(){   timeContainer.classList.toggle("sunlight"); }
 
 
 const body = document.querySelector('body');
@@ -136,3 +138,80 @@ const updateColors = () => {
 }
 updateColors();
 setInterval(() => updateColors(), 1000);
+
+
+const poohImage = document.getElementById("pooh-image");
+var poohCounter = 0;
+poohImage.onclick = function(){    
+	if (poohCounter==0){
+        poohImage.src = "images/pooh-2.JPG";
+		poohCounter++;
+    } else if (poohCounter==1){
+        poohImage.src = "images/pooh-3.JPG";
+		poohCounter++;
+	} else if (poohCounter==2){
+        poohImage.src = "images/pooh-4.JPG";
+		poohCounter++;
+    } else if (poohCounter==3){
+        poohImage.src = "images/pooh-h.JPG";
+		poohCounter=0;
+    }}
+
+const settingsIcon = document.getElementById("settings-icon");
+var innardsCounter=0;
+var innards1 = document.createElement("img");
+innards1.src = "images/mother.png";
+innards1.style.setProperty('position', 'absolute');
+innards1.style.setProperty('z-index', '-1000');
+innards1.style.setProperty('width', '50em');
+innards1.style.setProperty('top','-6em');
+var innards2 = document.createElement("img");
+innards2.src = "images/connectors.png";
+innards2.style.setProperty('position', 'absolute');
+innards2.style.setProperty('right','-2em');
+innards2.style.setProperty('top','-6em');
+innards2.style.setProperty('z-index', '-1000');
+innards2.style.setProperty('width', '60em');
+var innards3 = document.createElement("img");
+innards3.src = "images/connectors2.png";
+innards3.style.setProperty('position', 'absolute');
+innards3.style.setProperty('left','-2em');
+innards3.style.setProperty('top','-2em');
+innards3.style.setProperty('z-index', '-1000');
+innards3.style.setProperty('width', '70em');
+settingsIcon.onclick = function(){   
+	if (innardsCounter==0){
+		desktop.appendChild(innards1);
+		innardsCounter++;
+		setTimeout(() => {  	
+			if (desktop.contains(innards1)) {
+			desktop.removeChild(innards1);}
+		}, 4000);
+}
+else if(innardsCounter==1){
+	desktop.appendChild(innards2);
+	innardsCounter++;
+	setTimeout(() => {  	
+			if (desktop.contains(innards2)) {
+		desktop.removeChild(innards2);}
+	}, 4000);
+}
+else if(innardsCounter==2){
+	desktop.appendChild(innards3);
+	innardsCounter++;
+	setTimeout(() => {  
+		if (desktop.contains(innards3)) {
+		desktop.removeChild(innards3);
+		innardsCounter=0;
+		}
+	}, 4000);
+}else if(innardsCounter==3){
+	if (desktop.contains(innards1)) {
+	desktop.removeChild(innards1);}
+	if (desktop.contains(innards2)) {
+	desktop.removeChild(innards2);}
+	if (desktop.contains(innards3)) {
+	desktop.removeChild(innards3);
+	innardsCounter=0;
+}
+}}

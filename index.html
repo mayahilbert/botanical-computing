@@ -16,7 +16,7 @@
     <input checked data-global-option hidden id='global-option-always-on-top' type='checkbox'>
     <input data-global-option hidden id='global-option-auto-hide' type='checkbox'>
     <input data-global-option hidden id='global-option-show-small-icons' type='checkbox'>
-    <input data-name='computer' data-window-trigger hidden id='computer' type='checkbox'>
+    <input checked data-name='computer' class='no-tab active' data-window-trigger hidden id='computer' type='checkbox'>
     <input data-minimize data-name='computer' hidden id='computer-minimize' type='checkbox'>
     <input data-maximize data-name='computer' hidden id='computer-maximize' type='checkbox'>
     <input data-name='dreams' data-window-trigger hidden id='dreams' type='checkbox'>
@@ -52,6 +52,12 @@
     <input data-name='egg-2' data-window-trigger hidden id='egg-2' type='checkbox'>
     <input data-minimize data-name='egg-2' hidden id='egg-2-minimize' type='checkbox'>
     <input data-maximize data-name='egg-2' hidden id='egg-2-maximize' type='checkbox'>
+    <input data-name='egg-3' data-window-trigger hidden id='egg-3' type='checkbox'>
+    <input data-minimize data-name='egg-3' hidden id='egg-3-minimize' type='checkbox'>
+    <input data-maximize data-name='egg-3' hidden id='egg-3-maximize' type='checkbox'>
+    <input data-name='egg-4' data-window-trigger hidden id='egg-4' type='checkbox'>
+    <input data-minimize data-name='egg-4' hidden id='egg-4-minimize' type='checkbox'>
+    <input data-maximize data-name='egg-4' hidden id='egg-4-maximize' type='checkbox'>
     <input data-error-trigger data-name='critical' hidden id='error-critical' type='checkbox'>
     <main>
         <div id='desktop'>
@@ -61,12 +67,18 @@
                 </label>
                 <div class="desktop-eggs">
                     <label class='desktop-icon label-recycle-bin' for='recycle-bin' tabindex='0'>
-                        <span>Recycle Bin</span>
+                        <span>The Past</span>
                     </label>
-                    <label class='desktop-icon label-asset' for='egg-1' tabindex='0'>
+                    <label class='desktop-icon label-plant' for='egg-1' tabindex='0'>
                         <span>?????????</span>
                     </label>
-                    <label class='desktop-icon label-text' for='egg-2' tabindex='0'>
+                    <label class='desktop-icon label-book' for='egg-2' tabindex='0'>
+                        <span>?????????</span>
+                    </label>
+                    <label class='desktop-icon label-bucket' for='egg-3' tabindex='0'>
+                        <span>?????????</span>
+                    </label>
+                    <label id="settings-icon" class='desktop-icon label-gear' tabindex='0'>
                         <span>?????????</span>
                     </label>
                 </div>
@@ -89,7 +101,7 @@
                             <div class='list-container above-footer'>
                                 <menu class='list'>
                                     <li>
-                                        <label class='desktop-icon label-computer' for='dreams' tabindex='0'>
+                                        <label class='desktop-icon label-dream' for='dreams' tabindex='0'>
                                             <span>Dreams</span>
                                         </label>
                                     </li>
@@ -136,7 +148,7 @@
                                     </li>
                                     <li>
                                         <label class='desktop-icon label-asset' for='dream-3' tabindex='0'>
-                                            <span>Video 3</span>
+                                            <span>Memories of Care</span>
                                         </label>
                                     </li>
                                     <li>
@@ -171,7 +183,7 @@
                                             allowfullscreen></iframe>
                                     </div>
                                     <h3>Plant Growth Dreams</h3>
-                                    <h4>Video, 2024</h4>
+                                    <h4>Digital animation, 2024</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                         incididunt ut labore et dolore magna aliqua. Mi eget mauris pharetra et. Nibh
                                         tortor
@@ -209,7 +221,7 @@
                                             allowfullscreen></iframe>
                                     </div>
                                     <h3>Still Running</h3>
-                                    <h4>Video, 2024</h4>
+                                    <h4>Digital animation, 2024</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                         incididunt ut labore et dolore magna aliqua. Mi eget mauris pharetra et. Nibh
                                         tortor
@@ -229,7 +241,7 @@
                     <div class='window-inside'>
                         <nav class='window-nav'>
                             <h2 class='label-dream-3-small'>
-                                <span>Video 3</span>
+                                <span>Memories of Care</span>
                             </h2>
                             <div class='buttons'>
                                 <label class='minimize' for='dream-3-minimize' tabindex='0'></label>
@@ -246,8 +258,8 @@
                                             frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
                                             allowfullscreen></iframe>
                                     </div>
-                                    <h3>Video 3</h3>
-                                    <h4>Video, 2024</h4>
+                                    <h3>Memories of Care</h3>
+                                    <h4>Digital animation, 2024</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                         incididunt ut labore et dolore magna aliqua. Mi eget mauris pharetra et. Nibh
                                         tortor
@@ -285,7 +297,7 @@
                                             allowfullscreen></iframe>
                                     </div>
                                     <h3>Growth Study</h3>
-                                    <h4>Video, 2024</h4>
+                                    <h4>Digital animation, 2023-24</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                         incididunt ut labore et dolore magna aliqua. Mi eget mauris pharetra et. Nibh
                                         tortor
@@ -305,7 +317,7 @@
                     <div class='window-inside'>
                         <nav class='window-nav'>
                             <h2 class='label-recycle-bin-small'>
-                                <span>Recycle Bin</span>
+                                <span>The Past</span>
                             </h2>
                             <div class='buttons'>
                                 <label class='minimize' for='recycle-bin-minimize' tabindex='0'></label>
@@ -341,16 +353,7 @@
                         <div class='window-content'>
                             <div class='text-container above-footer'>
                                 <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Mi eget mauris pharetra et. Nibh
-                                        tortor
-                                        id aliquet lectus proin nibh. Rhoncus dolor purus non enim praesent elementum
-                                        facilisis leo vel. Est velit egestas dui id ornare. Vitae purus faucibus ornare
-                                        suspendisse. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis
-                                        feugiat. Ut tortor pretium viverra suspendisse. Cras semper auctor neque vitae
-                                        tempus. Placerat duis ultricies lacus sed turpis tincidunt id. Vulputate enim
-                                        nulla
-                                        aliquet porttitor lacus luctus accumsan tortor.</p>
+                                    <p>Coming soon.</p>
                                 </div>
                             </div>
                         </div>
@@ -371,16 +374,7 @@
                         <div class='window-content'>
                             <div class='text-container above-footer'>
                                 <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Mi eget mauris pharetra et. Nibh
-                                        tortor
-                                        id aliquet lectus proin nibh. Rhoncus dolor purus non enim praesent elementum
-                                        facilisis leo vel. Est velit egestas dui id ornare. Vitae purus faucibus ornare
-                                        suspendisse. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis
-                                        feugiat. Ut tortor pretium viverra suspendisse. Cras semper auctor neque vitae
-                                        tempus. Placerat duis ultricies lacus sed turpis tincidunt id. Vulputate enim
-                                        nulla
-                                        aliquet porttitor lacus luctus accumsan tortor.</p>
+                                    <p>Coming soon.</p>
                                 </div>
                             </div>
                         </div>
@@ -428,9 +422,8 @@
                             <div class='image-container above-footer'>
                                 <div class="image">
                                     <figure>
-                                        <a
-                                            href="https://mitpress.mit.edu/9780262047791/vegetal-entwinements-in-philosophy-and-art/"><img
-                                                src="images/vegetal.jpg">
+                                        <a href="https://mitpress.mit.edu/9780262047791/vegetal-entwinements-in-philosophy-and-art/"
+                                            target="_blank"><img src="images/vegetal.jpg">
                                         </a>
                                         <figcaption>The first reader in critical plant studies, exploring a rapidly
                                             growing
@@ -443,7 +436,56 @@
                         </div>
                     </div>
                 </div>
-
+                <div class='window window-text' data-window id='window-egg-3'>
+                    <div class='window-inside'>
+                        <nav class='window-nav'>
+                            <h2 class='label-egg-3-small'>
+                                <span>View-Master™</span>
+                            </h2>
+                            <div class='buttons'>
+                                <label class='minimize' for='egg-3-minimize' tabindex='0'></label>
+                                <label class='maximize' for='egg-3-maximize' tabindex='0'></label>
+                                <label class='close' for='egg-3' tabindex='0'></label>
+                            </div>
+                        </nav>
+                        <div class='window-content'>
+                            <div class='image-container above-footer'>
+                                <div class="image">
+                                    <figure>
+                                        <img id="pooh-image" class="interactable-image" src="images/pooh-h.JPG">
+                                    </figure>
+                                    <figcaption>"Winnie The Pooh And The Honey Tree" View-Master.<br>Scanned by <a href="http://lancecardinal.blogspot.com/2014/04/winnie-pooh-and-honey-tree-vintage-view.html
+                                        " target="_blank">Lance Cardinal</a>.</figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='window window-text' data-window id='window-egg-4'>
+                    <div class='window-inside'>
+                        <nav class='window-nav'>
+                            <h2 class='label-egg-4-small'>
+                                <span>?????????</span>
+                            </h2>
+                            <div class='buttons'>
+                                <label class='minimize' for='egg-4-minimize' tabindex='0'></label>
+                                <label class='maximize' for='egg-4-maximize' tabindex='0'></label>
+                                <label class='close' for='egg-4' tabindex='0'></label>
+                            </div>
+                        </nav>
+                        <div class='window-content'>
+                            <div class='image-container above-footer'>
+                                <div class="image">
+                                    <figure>
+                                        <img src="images/mother.jpg">
+                                    </figure>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class='window window-default' data-window id='window-draft-1'>
                     <div class='window-inside'>
                         <nav class='window-nav'>
@@ -495,7 +537,7 @@
                 <li class='tab tab-dream-3' data-tab>
                     <span class='activate'></span>
                     <label class='label-dream-3-small' for='dream-3-minimize'>
-                        <span>Video 3</span>
+                        <span>Memories of Care</span>
                     </label>
                 </li>
                 <li class='tab tab-dream-4' data-tab>
@@ -519,7 +561,7 @@
                 <li class='tab tab-recycle-bin' data-tab>
                     <span class='activate'></span>
                     <label class='label-recycle-bin-small' for='recycle-bin-minimize'>
-                        <span>Recycle Bin</span>
+                        <span>The Past</span>
                     </label>
                 </li>
                 <li class='tab tab-draft-1' data-tab>
@@ -538,6 +580,18 @@
                     <span class='activate'></span>
                     <label class='label-egg-2-small' for='egg-2-minimize'>
                         <span>Vegetal Entwinements in Philosophy and Art</span>
+                    </label>
+                </li>
+                <li class='tab tab-egg-3' data-tab>
+                    <span class='activate'></span>
+                    <label class='label-egg-3-small' for='egg-3-minimize'>
+                        <span>View-Master™</span>
+                    </label>
+                </li>
+                <li class='tab tab-egg-4' data-tab>
+                    <span class='activate'></span>
+                    <label class='label-egg-4-small' for='egg-4-minimize'>
+                        <span>Mother</span>
                     </label>
                 </li>
             </menu>

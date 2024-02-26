@@ -27,7 +27,7 @@
     --text-tertiary-color: #02384f;
     --bg-color: hsla(0, 93%, 24%, 1);
     --navbar-color: #162f22;
-    --navbar-active-color: #07462b;
+    --navbar-active-color: #263e18;
     --interface-color: hsl(120, 54%, 52%);
     --interface-color-light: #d3ba40;
     --interface-color-lighter: #f3c2b4;
@@ -83,6 +83,15 @@ body {
     overflow: hidden;
     transition: background-image 60s;
     font-family: "DinaBold", monospace;
+}
+
+a {
+    color: var(--navbar-active-color);
+    cursor: pointer;
+}
+
+a:visited {
+    color: var(--navbar-color);
 }
 
 p,
@@ -169,22 +178,47 @@ label[tabindex] span span {
 }
 
 .label-face:before {
-    background-image: url("icons/face.png");
+    background-image: url("icons/Ruzanka_Icon.png");
     background-repeat: no-repeat;
 }
 
 .label-recycle-bin:before {
-    background-image: url("icons/bin.png");
+    background-image: url("icons/TrashBin_Icon.png");
+    background-repeat: no-repeat;
+}
+
+.label-dream:before {
+    background-image: url("icons/Plant_Icon.png");
     background-repeat: no-repeat;
 }
 
 .label-asset:before {
-    background-image: url("icons/asset.png");
+    background-image: url("icons/PlantWire_Icon.png");
     background-repeat: no-repeat;
 }
 
 .label-text:before {
     background-image: url("icons/text.png");
+    background-repeat: no-repeat;
+}
+
+.label-plant:before {
+    background-image: url("icons/Plant_Icon_v2.png");
+    background-repeat: no-repeat;
+}
+
+.label-book:before {
+    background-image: url("icons/Book_Icon.png");
+    background-repeat: no-repeat;
+}
+
+.label-bucket:before {
+    background-image: url("icons/PaintBucket_Icon.png");
+    background-repeat: no-repeat;
+}
+
+.label-gear:before {
+    background-image: url("icons/Gear_Icon.png");
     background-repeat: no-repeat;
 }
 
@@ -298,8 +332,17 @@ label[tabindex] span span {
 .desktop-eggs {
     align-self: flex-end;
     position: absolute;
-    right: 2em;
+    right: 0;
+    display: flex;
+    flex-flow: wrap-reverse;
+    justify-content: flex-end;
+    overflow: auto;
+    max-height: 80%;
+    gap: 1em;
+
 }
+
+
 
 .desktop-icon:before,
 .desktop-icon:after {
@@ -323,6 +366,7 @@ label[tabindex] span span {
 .desktop-icon span {
     padding: 1px;
     border: 1.5px solid transparent;
+    white-space: normal;
 }
 
 .desktop-icon[tabindex]:active span,
@@ -606,6 +650,10 @@ label[tabindex] span span {
     -ms-interpolation-mode: bicubic;
     image-rendering: auto;
     image-rendering: smooth;
+}
+
+.interactable-image {
+    cursor: pointer;
 }
 
 figcaption {
@@ -982,6 +1030,12 @@ figcaption {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+}
+
+#icons .label-computer:before,
+#icons .label-computer:after {
+    width: 9vw;
+    height: 7vw;
 }
 
 #computer:checked~main .menu .label-computer {
@@ -3668,6 +3722,28 @@ input[id*=error-]:checked~main #alerts {
     height: 50px;
     width: 100px;
     margin: 0 3px;
+    transition: 1s;
+}
+
+.start-menu .time.sunlight {
+    background-color: yellow;
+    box-shadow: 0 0 1px yellow;
+    animation: glow 4s infinite;
+    color: green;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 1px yellow;
+    }
+
+    50% {
+        box-shadow: 0 0 10px yellow;
+    }
+
+    100% {
+        box-shadow: 0 0 1px yellow;
+    }
 }
 
 #start-menu {
