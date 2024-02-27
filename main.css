@@ -350,8 +350,7 @@ label[tabindex] span span {
 
 
 
-.desktop-icon:before,
-.desktop-icon:after {
+.desktop-icon:before {
     width: 6vw;
     height: 4.5vw;
     min-width: 40px;

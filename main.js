@@ -223,3 +223,33 @@ else if(innardsCounter==2){
 	innardsCounter=0;
 }
 }}
+
+
+let interval
+
+const iconTitle = document.querySelectorAll('.desktop-icon span.scrambled, .window-nav h2 span')
+iconTitle.forEach(element=>{
+const originalText = element.innerText
+
+const randomInt = max => Math.floor(Math.random() * max)
+const randomFromArray = array => array[randomInt(array.length)]
+
+const scrambleText = text => {
+  const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ*?><&@#.%$-!?/;:'.split('')
+  return text
+    .split('')
+    .map(x => randomInt(3) > 1 ? randomFromArray(chars) : x)
+    .join('')
+}
+  
+element.addEventListener('mouseover', () => {
+  interval = setInterval(() =>
+    element.innerText = scrambleText(originalText)
+  , 100)
+})
+  
+element.addEventListener('mouseout', () => {
+  clearInterval(interval)
+  element.innerText = originalText
+})
+})
