@@ -341,6 +341,7 @@ label[tabindex] span span {
     bottom: -2vw;
     display: flex;
     flex-flow: wrap-reverse;
+    -webkit-flex-flow: wrap-reverse;
     justify-content: flex-end;
     overflow: auto;
     max-height: 80%;
