@@ -227,7 +227,7 @@ else if(innardsCounter==2){
 
 let interval
 
-const iconTitle = document.querySelectorAll('.desktop-icon span.scrambled, .window-nav h2 span')
+const iconTitle = document.querySelectorAll('.desktop-icon span.scrambled')
 iconTitle.forEach(element=>{
 const originalText = element.innerText
 
