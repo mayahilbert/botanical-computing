@@ -340,6 +340,7 @@ label[tabindex] span span {
     align-self: flex-end;
     position: absolute;
     right: 0;
+    bottom: calc(0 + var(--taskbar-height));
     display: flex;
     flex-wrap: wrap;
     flex-flow: wrap-reverse;
