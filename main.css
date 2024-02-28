@@ -313,7 +313,6 @@ label[tabindex] span span {
     top: 0;
     left: 0;
     width: 100vw;
-    height: calc(100vh - var(--taskbar-height));
     height: calc(100% - var(--taskbar-height));
 }
 
@@ -423,8 +422,7 @@ label[tabindex] span span {
 .window-inside,
 .alert-inside {
     max-width: calc(100vw - 36px);
-    max-height: calc(100vh - var(--taskbar-height) - 12px);
-    height: calc(100% - var(--taskbar-height));
+    max-height: calc(100% - var(--taskbar-height) - 12px);
     min-width: 300px;
     min-height: 200px;
     overflow: hidden;
@@ -1015,7 +1013,7 @@ figcaption {
 #taskbar-maximize:checked~main #window-taskbar .window-inside {
     max-width: calc(100vw - 12px);
     width: calc(100vw - 12px) !important;
-    height: calc(100vh - var(--taskbar-height) - 12px) !important;
+    height: calc(100% - var(--taskbar-height) - 12px) !important;
 }
 
 #taskbar-maximize:checked~main #window-taskbar .window-inside .maximize:before,
