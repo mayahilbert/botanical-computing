@@ -32,7 +32,7 @@
     --interface-color-light: #d3ba40;
     --interface-color-lighter: #f3c2b4;
     --interface-color-darker: #9c3f17;
-    --taskbar-height: 65px;
+    --taskbar-height: 3.3em;
 }
 
 *,
@@ -71,8 +71,7 @@
 body,
 html {
     height: 100vh;
-    height: fill-available;
-    height: -webkit-fill-available;
+    height: 100dvh;
 }
 
 body {
@@ -340,7 +339,6 @@ label[tabindex] span span {
     align-self: flex-end;
     position: absolute;
     right: 0;
-    bottom: calc(0 + var(--taskbar-height));
     display: flex;
     flex-wrap: wrap;
     flex-flow: wrap-reverse;
