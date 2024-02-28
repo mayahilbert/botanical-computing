@@ -314,6 +314,7 @@ label[tabindex] span span {
     left: 0;
     width: 100vw;
     height: calc(100vh - var(--taskbar-height));
+    height: calc(100dvh - var(--taskbar-height));
 }
 
 #icons {
@@ -423,6 +424,7 @@ label[tabindex] span span {
 .alert-inside {
     max-width: calc(100vw - 36px);
     max-height: calc(100vh - var(--taskbar-height) - 12px);
+    height: calc(100dvh - var(--taskbar-height));
     min-width: 300px;
     min-height: 200px;
     overflow: hidden;
