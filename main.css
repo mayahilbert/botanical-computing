@@ -1051,6 +1051,8 @@ figcaption {
 #icons .label-computer:after {
     width: 9vw;
     height: 7vw;
+    min-width: 100px;
+    min-height: 80px;
 }
 
 #computer:checked~main .menu .label-computer {
