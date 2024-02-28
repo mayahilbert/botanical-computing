@@ -338,7 +338,6 @@ label[tabindex] span span {
     align-self: flex-end;
     position: absolute;
     right: 0;
-    bottom: -2vw;
     display: flex;
     flex-wrap: wrap;
     flex-flow: wrap-reverse;
@@ -652,7 +651,7 @@ figure {
 .image {
     height: 100%;
     overflow: auto;
-    padding: 1em;
+    padding: 2vw;
 }
 
 .image a img {
