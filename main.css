@@ -340,6 +340,7 @@ label[tabindex] span span {
     right: 0;
     bottom: -2vw;
     display: flex;
+    flex-wrap: wrap;
     flex-flow: wrap-reverse;
     -webkit-flex-flow: wrap-reverse;
     justify-content: flex-end;
@@ -348,8 +349,6 @@ label[tabindex] span span {
     gap: 1em;
 
 }
-
-
 
 .desktop-icon:before {
     width: 6vw;
@@ -646,6 +645,10 @@ label[tabindex] span span {
     padding: 1em;
 }
 
+figure {
+    margin: 0;
+}
+
 .image {
     height: 100%;
     overflow: auto;
@@ -661,6 +664,7 @@ label[tabindex] span span {
     -ms-interpolation-mode: bicubic;
     image-rendering: auto;
     image-rendering: smooth;
+    max-height: 60vh;
 }
 
 .interactable-image {
