@@ -42,7 +42,7 @@ triggers.forEach(trigger=>{
 			window.style.zIndex = layer;
 			window.setAttribute("data-index", layer);
 			drag = new Draggabilly(window, {
-				handle: ".window-nav",
+				handle: ".window-nav h2",
 				containment: true
 			});
 		} else {
