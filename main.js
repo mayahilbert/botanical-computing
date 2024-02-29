@@ -84,6 +84,7 @@ minimizers.forEach((minimizer, index)=>{
 		}
 	});
 	minimizer.addEventListener("click", e => {
+		console.log("minimizer clicked");
 		if(minimizer.checked) {
 			minimizer.setAttribute("checked", "");
 			trigger.classList.remove("active");
