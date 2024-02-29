@@ -83,7 +83,7 @@ minimizers.forEach((minimizer, index)=>{
 			window.setAttribute("data-index", highest);
 		}
 	});
-	minimizer.addEventListener("click", e => {
+	minimizer.addEventListener("mouseup", e => {
 		console.log("minimizer clicked");
 		if(minimizer.checked) {
 			minimizer.setAttribute("checked", "");
