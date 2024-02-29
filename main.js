@@ -41,10 +41,10 @@ triggers.forEach(trigger=>{
 			layer = layer + 1;
 			window.style.zIndex = layer;
 			window.setAttribute("data-index", layer);
-			//drag = new Draggabilly(window, {
-			//	handle: ".window-nav",
-			//	containment: true
-			//});
+			drag = new Draggabilly(window, {
+				handle: ".window-nav",
+				containment: true
+			});
 		} else {
 			trigger.classList.remove("active");
 			trigger.removeAttribute("checked");
@@ -83,7 +83,7 @@ minimizers.forEach((minimizer, index)=>{
 			window.setAttribute("data-index", highest);
 		}
 	});
-	minimizer.addEventListener("mouseup", e => {
+	minimizer.addEventListener("click", e => {
 		console.log("minimizer clicked");
 		if(minimizer.checked) {
 			minimizer.setAttribute("checked", "");
