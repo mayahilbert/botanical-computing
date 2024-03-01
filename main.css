@@ -4293,21 +4293,23 @@ input[id*=error-]:checked~main #alerts {
     }
 }
 
-.inline-image {
-    max-width: 2em;
-    max-height: 100%;
-    margin-bottom: -0.7em;
-    margin-top: -0.3em;
-    display: none;
-}
-
-.welcome-flower {
+.welcome-flower1 {
     z-index: 9999;
     position: absolute;
     width: 20em;
     rotate: 230deg;
     top: 0;
     right: -2em;
+    pointer-events: none;
+}
+
+.welcome-flower2 {
+    z-index: 9999;
+    position: absolute;
+    width: 30em;
+    /*rotate: -120deg;*/
+    top: -3em;
+    right: 6em;
     pointer-events: none;
 }
 

@@ -224,18 +224,34 @@ else if(innardsCounter==2){
 	innardsCounter=0;
 }
 }}
-var welcomeflower = document.createElement("img");
-welcomeflower.src = "images/flower-1.png";
-welcomeflower.classList.add("welcome-flower");
-const welcomeFlowerTrigger = document.getElementById("trigger-welcome-flower");
-welcomeFlowerTrigger.onclick = function(){
-	body.appendChild(welcomeflower);
-		setTimeout(() => {  	
-			if (body.contains(welcomeflower)) {
-				body.removeChild(welcomeflower);}
-		}, 3000);
-   }
 
+var welcomeflower1 = document.createElement("img");
+welcomeflower1.src = "images/flower-1.png";
+welcomeflower1.classList.add("welcome-flower1");
+var welcomeflower2 = document.createElement("img");
+welcomeflower2.src = "images/flower-2.png";
+welcomeflower2.classList.add("welcome-flower2");
+let welcomeFlowerTrigger = document.getElementById("trigger-welcome-flower");
+let welcomeCounter = 0;
+welcomeFlowerTrigger.onclick = function(){
+	if(welcomeCounter==0){
+	body.appendChild(welcomeflower1);
+	welcomeFlowerTrigger.innerHTML = "close this welcome window and click around. Don't be shy!";
+		setTimeout(() => {  	
+			if (body.contains(welcomeflower1)) {
+				body.removeChild(welcomeflower1);}
+		}, 2000);
+		welcomeCounter++}
+		else{
+			body.appendChild(welcomeflower2);
+			setTimeout(() => {  	
+				if (body.contains(welcomeflower2)) {
+					body.removeChild(welcomeflower2);}
+			}, 2000);
+			welcomeFlowerTrigger.innerHTML = "perhaps see where the icons in the lower left take you?";
+			welcomeCounter=0;
+		}
+   }
 
 
 let interval
