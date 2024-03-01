@@ -30,7 +30,7 @@
     --navbar-active-color: #263e18;
     --interface-color: hsl(120, 54%, 52%);
     --interface-color-light: #d3ba40;
-    --interface-color-lighter: #f3c2b4;
+    --interface-color-lighter: #ffd7ac;
     --interface-color-darker: #9c3f17;
     --taskbar-height: 3.3em;
 }
@@ -250,6 +250,12 @@ label[tabindex] span span {
     height: 36px;
     background: none;
     text-align: center;
+    cursor: pointer;
+}
+
+.button span,
+.clickable {
+    cursor: pointer;
 }
 
 .button.underline span:first-letter {
@@ -793,11 +799,12 @@ figcaption {
 }
 
 .alert-content {
-    padding: 0 24px;
+    padding: 1em 2em;
     height: calc(100% - 28px - 52px);
 }
 
 .alert-content p {
+    font-family: 'Dina', monospace;
     padding: 16px 0 0;
     margin: 0;
 }
@@ -3892,4 +3899,417 @@ input[id*=error-]:checked~main #alerts {
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+#window-welcome .window-inside {
+    height: 100%;
+    width: 40vw;
+}
+
+#window-welcome .window-content {
+    padding: 20px;
+    height: calc(100% - 3px - 40px - 36px);
+}
+
+#window-welcome .window-footer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding-right: 19px;
+    padding-bottom: 1em;
+}
+
+#window-welcome .window-footer .button {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--black), inset 1.5px 1.5px 0 0 var(--interface-color-lighter), inset -3px -3px 0 0 var(--interface-color-darker), inset 3px 3px 0 0 var(--interface-color);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: var(--interface-color);
+    padding: 0 0.8em !important;
+    background-color: var(--interface-color);
+    cursor: pointer;
+
+}
+
+#window-welcome .window-footer .button:active {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    outline: 1px dotted #263238;
+    outline-width: 1px;
+    outline-offset: -6px;
+}
+
+#welcome:checked~main #window-welcome {
+    will-change: transform;
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+#welcome.active~#welcome-minimize:not(:checked)~main #window-welcome,
+#welcome.active.no-tab~main #window-welcome {
+    z-index: 10;
+}
+
+#welcome.active~#welcome-minimize:not(:checked)~main #window-welcome .window-nav,
+#welcome.active.no-tab~main #window-welcome .window-nav {
+    background-color: var(--navbar-active-color);
+}
+
+#welcome.active~#welcome-minimize:not(:checked)~main .window[data-window]:not(#window-welcome),
+#welcome.active.no-tab~main .window[data-window]:not(#window-welcome) {
+    z-index: 2;
+}
+
+#welcome.active~#welcome-minimize:not(:checked)~main .tab-welcome label,
+#welcome.active.no-tab~main .tab-welcome label {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-bottom: 1.5px;
+    z-index: 4;
+    background: #cac6cb;
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), -webkit-linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-image: linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color)), linear-gradient(45deg, var(--highlight-color) 25%, transparent 25%, transparent 75%, var(--highlight-color) 75%, var(--highlight-color));
+    background-size: 3px 3px;
+    background-position: 0 0, 1.5px 1.5px;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    color: var(--text-tertiary-color);
+}
+
+#welcome.active~#welcome-minimize:not(:checked)~main .activate:not(.tab-welcome .activate),
+#welcome.active.no-tab~main .activate:not(.tab-welcome .activate) {
+    z-index: 1;
+}
+
+#welcome.active~#welcome-minimize:not(:checked)~main .tab label:not(.tab-welcome label),
+#welcome.active.no-tab~main .tab label:not(.tab-welcome label) {
+    z-index: 0;
+}
+
+#welcome-minimize:active~main #window-welcome .window-inside .minimize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#welcome-minimize:checked~main #window-welcome {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+}
+
+#welcome-maximize:active~main #window-welcome .window-inside .maximize {
+    box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
+    padding-bottom: 1.5px;
+    padding-right: 1.5px;
+}
+
+#welcome-maximize:checked~main #window-welcome {
+    left: unset !important;
+    top: 0 !important;
+}
+
+#welcome-maximize:checked~main #window-welcome .window-inside {
+    max-width: calc(100vw - 12px);
+    width: calc(100vw - 12px) !important;
+    height: calc(100vh - 44px - 12px) !important;
+}
+
+#welcome-maximize:checked~main #window-welcome .window-inside .maximize:before,
+#welcome-maximize:checked~main #window-welcome .window-inside .maximize:after {
+    width: 9px;
+    height: 9px;
+}
+
+#welcome-maximize:checked~main #window-welcome .window-inside .maximize:before {
+    visibility: visible;
+    top: 3px;
+    right: 6px;
+}
+
+#welcome-maximize:checked~main #window-welcome .window-inside .maximize:after {
+    bottom: 4px;
+    left: 4px;
+}
+
+.particles {
+    position: absolute;
+    top: 20%;
+    z-index: -1;
+}
+
+.particle {
+    position: absolute;
+    background: var(--white);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 10px;
+    height: 10px;
+    opacity: 0;
+    animation: doit 5500ms infinite 5s;
+    animation-direction: reverse;
+}
+
+#particle1 {
+    transform: translateX(81.43443px) translateY(38.32014px) scale(0.01231);
+    animation-delay: -3130ms;
+}
+
+#particle2 {
+    transform: translateX(-29.37877px) translateY(62.43307px) scale(0.11623);
+    animation-delay: -1185ms;
+}
+
+#particle3 {
+    transform: translateX(37.03047px) translateY(-50.96807px) scale(0.16419);
+    animation-delay: -4375ms;
+}
+
+#particle4 {
+    transform: translateX(-27.50404px) translateY(-5.24668px) scale(0.57422);
+    animation-delay: -4101ms;
+}
+
+#particle5 {
+    transform: translateX(-42.87608px) translateY(-77.99129px) scale(0.01489);
+    animation-delay: -4970ms;
+}
+
+#particle6 {
+    transform: translateX(38.57953px) translateY(60.79161px) scale(0.09517);
+    animation-delay: -303ms;
+}
+
+#particle7 {
+    transform: translateX(-26.19745px) translateY(21.67242px) scale(0.49096);
+    animation-delay: -1757ms;
+}
+
+#particle8 {
+    transform: translateX(-66.70191px) translateY(42.33032px) scale(0.05391);
+    animation-delay: -1317ms;
+}
+
+#particle9 {
+    transform: translateX(-37.92502px) translateY(2.38604px) scale(0.43792);
+    animation-delay: -4239ms;
+}
+
+#particle10 {
+    transform: translateX(-28.50899px) translateY(23.58469px) scale(0.45098);
+    animation-delay: -2380ms;
+}
+
+#particle11 {
+    transform: translateX(32.93488px) translateY(-200.07209px) scale(0.50454);
+    animation-delay: -558ms;
+}
+
+#particle12 {
+    transform: translateX(49.28739px) translateY(52.48574px) scale(0.09517);
+    animation-delay: -2891ms;
+}
+
+#particle13 {
+    transform: translateX(15.49733px) translateY(3.97904px) scale(0.15131);
+    animation-delay: -2893ms;
+}
+
+#particle14 {
+    transform: translateX(42.37823px) translateY(35.05832px) scale(0.23959);
+    animation-delay: -4205ms;
+}
+
+#particle15 {
+    transform: translateX(-94.29958px) translateY(17.98861px) scale(0.00197);
+    animation-delay: -4392ms;
+}
+
+#particle16 {
+    transform: translateX(15.66746px) translateY(61.02074px) scale(0.16419);
+    animation-delay: -1259ms;
+}
+
+#particle17 {
+    transform: translateX(47.21186px) translateY(-85.87805px) scale(0.00049);
+    animation-delay: -3205ms;
+}
+
+#particle18 {
+    transform: translateX(-17.61384px) translateY(-92.335px) scale(0.00444);
+    animation-delay: -990ms;
+}
+
+#particle19 {
+    transform: translateX(-20.89725px) translateY(-32.92879px) scale(0.42499);
+    animation-delay: -3184ms;
+}
+
+#particle20 {
+    transform: translateX(47.8068px) translateY(-57.78849px) scale(0.07612);
+    animation-delay: -4843ms;
+}
+
+#particle21 {
+    transform: translateX(-25.97254px) translateY(-55.19445px) scale(0.18185);
+    animation-delay: -2525ms;
+}
+
+#particle22 {
+    transform: translateX(56px) translateY(30px) scale(0.22949);
+    animation-delay: -2183ms;
+}
+
+#particle23 {
+    transform: translateX(0px) translateY(71px) scale(0.10197);
+    animation-delay: -1311ms;
+}
+
+#particle24 {
+    transform: translateX(-94.2509px) translateY(-11.90666px) scale(0.00308);
+    animation-delay: -5249ms;
+}
+
+#particle25 {
+    transform: translateX(19.82559px) translateY(-31.24013px) scale(0.45098);
+    animation-delay: -2114ms;
+}
+
+#particle26 {
+    transform: translateX(0px) translateY(34px) scale(0.49096);
+    animation-delay: -4075ms;
+}
+
+#particle27 {
+    transform: translateX(-56.85955px) translateY(-53.39467px) scale(0.05912);
+    animation-delay: -847ms;
+}
+
+#particle28 {
+    transform: translateX(-94.29958px) translateY(-17.98861px) scale(0.00197);
+    animation-delay: -5006ms;
+}
+
+#particle29 {
+    transform: translateX(16.3779px) translateY(50.406px) scale(0.26037);
+    animation-delay: -2219ms;
+}
+
+#particle30 {
+    transform: translateX(87.42357px) translateY(16.67694px) scale(0.01489);
+    animation-delay: -4002ms;
+}
+
+#particle31 {
+    transform: translateX(42.33032px) translateY(66.70191px) scale(0.05391);
+    animation-delay: -4747ms;
+}
+
+#particle32 {
+    transform: translateX(-70.37818px) translateY(22.86726px) scale(0.08225);
+    animation-delay: -4891ms;
+}
+
+#particle33 {
+    transform: translateX(17.23908px) translateY(90.37043px) scale(0.00789);
+    animation-delay: -250ms;
+}
+
+#particle34 {
+    transform: translateX(-48.61362px) translateY(-6.14133px) scale(0.30409);
+    animation-delay: -5083ms;
+}
+
+#particle35 {
+    transform: translateX(-7.49525px) translateY(-80.29149px) scale(0.41221);
+    animation-delay: -938ms;
+}
+
+#particle36 {
+    transform: translateX(-71.70697px) translateY(-13.67884px) scale(0.0886);
+    animation-delay: -51ms;
+}
+
+#particle37 {
+    transform: translateX(-73.62055px) translateY(-53.48846px) scale(0.00998);
+    animation-delay: -5014ms;
+}
+
+#particle38 {
+    transform: translateX(13.39567px) translateY(21.1082px) scale(0.61732);
+    animation-delay: -3366ms;
+}
+
+#particle39 {
+    transform: translateX(80.62021px) translateY(-44.32134px) scale(0.00789);
+    animation-delay: -2991ms;
+}
+
+#particle40 {
+    transform: translateX(53.94368px) translateY(-50.65649px) scale(0.08225);
+    animation-delay: -1634ms;
+}
+
+@keyframes doit {
+    0% {
+        opacity: 0;
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0) translateY(0) scale(0.6);
+    }
+}
+
+.inline-image {
+    max-width: 2em;
+    height: 100%;
+    margin-bottom: -0.7em;
+    margin-top: -0.3em;
+}
+
+.welcome-flower {
+    z-index: 9999;
+    position: absolute;
+    width: 20em;
+    rotate: 230deg;
+    top: 0;
+    right: -2em;
+    pointer-events: none;
+}
+
+.bold {
+    font-weight: bold;
 }

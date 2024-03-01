@@ -141,7 +141,7 @@ timeContainer.onclick = function(){
 }
 
 const updateColors = () => {
-	let interfaceColor = "hsl("+(150-(hour*2))+","+(54+(hour*0.5))+"%,"+(50-(hour*0.6))+"%)";
+	let interfaceColor = "hsl("+(140-(hour*2))+","+(54+(hour*0.5))+"%,"+(50-(hour*0.6))+"%)";
 	body.style.backgroundImage = "linear-gradient(0deg, hsla(359, 98%, 22%,"+((hour-1)*0.02)+"), hsla(0, 93%, 24%,"+((hour-1)*0.035)+"), hsla(0, 95%, 24%,"+((hour-1)*0.04166)+"), hsla(0, 100%, 40%,"+((hour-1)*0.037)+")), url('images/silviakeyimage-2.png')"; 
 	root.style.setProperty('--interface-color', interfaceColor);
 }
@@ -224,11 +224,23 @@ else if(innardsCounter==2){
 	innardsCounter=0;
 }
 }}
+var welcomeflower = document.createElement("img");
+welcomeflower.src = "images/flower-1.png";
+welcomeflower.classList.add("welcome-flower");
+const welcomeFlowerTrigger = document.getElementById("trigger-welcome-flower");
+welcomeFlowerTrigger.onclick = function(){
+	body.appendChild(welcomeflower);
+		setTimeout(() => {  	
+			if (body.contains(welcomeflower)) {
+				body.removeChild(welcomeflower);}
+		}, 3000);
+   }
+
 
 
 let interval
 
-const iconTitle = document.querySelectorAll('.desktop-icon span.scrambled')
+const iconTitle = document.querySelectorAll('.scrambled')
 iconTitle.forEach(element=>{
 const originalText = element.innerText
 
@@ -254,3 +266,14 @@ element.addEventListener('mouseout', () => {
   element.innerText = originalText
 })
 })
+
+
+const bloomLeft = document.querySelector(".bloom-left");
+const updateBloom = () => {
+	const difference = luxon.DateTime.fromISO("2024-05-02T24:00").diff(luxon.DateTime.now(), 'days');
+	bloomLeft.innerHTML = difference.toFormat("dd");
+}
+updateBloom();
+setInterval(() => updateBloom(), 120000);
+
+

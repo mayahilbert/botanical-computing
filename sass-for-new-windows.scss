@@ -1,4 +1,4 @@
-// if adding new windows, add them to this file on line 111, compile (can use sassmeister.com) and replace in main.css
+// if adding new windows, add them to this file on line 185, compile (can use sassmeister.com) and replace in main.css
 
 
 // custom colors
@@ -182,7 +182,7 @@ $q: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNnB4IiBoZWlnaHQ9IjlweCIgdmlld0Jve
 }
 
 
-$windows: computer, recycle-bin, dreams, dream-1, dream-2, dream-3, dream-4, artist-interview, curatorial-statement, draft-1, draft-2, draft-3, draft-4, egg-1, egg-2, egg-3, egg-4, egg-5, egg-6, egg-7;
+$windows: welcome, computer, recycle-bin, dreams, dream-1, dream-2, dream-3, dream-4, artist-interview, curatorial-statement, draft-1, draft-2, draft-3, draft-4, egg-1, egg-2, egg-3, egg-4, egg-5, egg-6, egg-7;
 
 @each $window in $windows {
     ##{$window} {
