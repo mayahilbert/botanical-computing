@@ -612,7 +612,7 @@ label[tabindex] span span {
 .window-video .window-inside {
     width: 56vw;
     height: 82vh;
-    max-height: calc(100% - 56px);
+    max-height: calc(100dvh - 70px);
 }
 
 .window-content {
