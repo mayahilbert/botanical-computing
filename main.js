@@ -248,7 +248,7 @@ welcomeFlowerTrigger.onclick = function(){
 				if (body.contains(welcomeflower2)) {
 					body.removeChild(welcomeflower2);}
 			}, 2000);
-			welcomeFlowerTrigger.innerHTML = "perhaps see where the icons in the lower left take you?";
+			welcomeFlowerTrigger.innerHTML = "perhaps see where the icons in the lower right take you?";
 			welcomeCounter=0;
 		}
    }
