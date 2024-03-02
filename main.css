@@ -68,6 +68,10 @@
     background: none;
 }
 
+html {
+    background-color: black;
+}
+
 body,
 html {
     height: 100vh;
