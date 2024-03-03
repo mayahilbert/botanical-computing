@@ -59,6 +59,9 @@
     <input data-name='egg-4' data-window-trigger hidden id='egg-4' type='checkbox'>
     <input data-minimize data-name='egg-4' hidden id='egg-4-minimize' type='checkbox'>
     <input data-maximize data-name='egg-4' hidden id='egg-4-maximize' type='checkbox'>
+    <input data-name='egg-5' data-window-trigger hidden id='egg-5' type='checkbox'>
+    <input data-minimize data-name='egg-5' hidden id='egg-5-minimize' type='checkbox'>
+    <input data-maximize data-name='egg-5' hidden id='egg-5-maximize' type='checkbox'>
     <input data-error-trigger data-name='critical' hidden id='error-critical' type='checkbox'>
     <main>
         <div id='desktop'>
@@ -122,6 +125,9 @@
                         <span class="scrambled">?????????</span>
                     </label>
                     <label class='desktop-icon label-bucket' for='egg-3' tabindex='0'>
+                        <span class="scrambled">?????????</span>
+                    </label>
+                    <label class='desktop-icon label-leaf' for='egg-5' tabindex='0'>
                         <span class="scrambled">?????????</span>
                     </label>
                     <label id="settings-icon" class='desktop-icon label-gear' tabindex='0'>
@@ -397,10 +403,15 @@
                             </div>
                         </nav>
                         <div class='window-content'>
-                            <div class='text-container above-footer'>
-                                <div class="text">
-                                    <p>Coming soon.</p>
-                                </div>
+
+                            <div class='list-container above-footer'>
+                                <menu class='list'>
+                                    <li>
+                                        <label class='desktop-icon label-asset' for='draft-1' tabindex='0'>
+                                            <span>hand.jpg</span>
+                                        </label>
+                                    </li>
+                                </menu>
                             </div>
                         </div>
                     </div>
@@ -420,7 +431,7 @@
                         <div class='window-content'>
                             <div class='text-container above-footer'>
                                 <div class="text">
-                                    <p>Coming soon.</p>
+                                    <p class="bitmap-font">Coming soon.</p>
                                 </div>
                             </div>
                         </div>
@@ -821,8 +832,8 @@
                                 <div class="image">
                                     <figure>
                                         <img id="pooh-image" class="interactable-image" src="images/pooh-h.JPG">
-                                    </figure>
-                                    <figcaption>"Winnie The Pooh And The Honey Tree" View-Master.<br>Scanned by <a href="http://lancecardinal.blogspot.com/2014/04/winnie-pooh-and-honey-tree-vintage-view.html
+                                        <figcaption>"Winnie The Pooh And The Honey Tree" View-Master.<br>Scanned by <a
+                                                href="http://lancecardinal.blogspot.com/2014/04/winnie-pooh-and-honey-tree-vintage-view.html
                                         " target="_blank">Lance Cardinal</a>.</figcaption>
                                     </figure>
                                 </div>
@@ -843,21 +854,70 @@
                             </div>
                         </nav>
                         <div class='window-content'>
-                            <div class='image-container above-footer'>
-                                <div class='text-container above-footer'>
-                                    <div class="text">
-                                        <p>Coming soon.</p>
-                                    </div>
+                            <div class='text-container above-footer'>
+                                <div class="text">
+                                    <p class="bitmap-font">Coming soon.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class='window window-default' data-window id='window-draft-1'>
+                <div class='window window-default-tall' data-window id='window-egg-5'>
+                    <div class='window-inside'>
+                        <nav class='window-nav'>
+                            <h2 class='label-egg-5-small'>
+                                <span>Process in Bloom</span>
+                            </h2>
+                            <div class='buttons'>
+                                <label class='minimize' for='egg-5-minimize' tabindex='0'></label>
+                                <label class='maximize' for='egg-5-maximize' tabindex='0'></label>
+                                <label class='close' for='egg-5' tabindex='0'></label>
+                            </div>
+                        </nav>
+                        <div class='window-content'>
+                            <div class='text-container above-footer'>
+                                <div class="text">
+                                    <p class="bitmap-font">The beginnings of Process in Bloom, four evolving
+                                        research
+                                        collages
+                                        created with the New Media Artspace Docent Team. Currently on view in the Newman
+                                        Library.
+                                    </p>
+                                    <div class="images">
+                                        <img src="images/collage-fl3.JPG">
+
+                                        <img src="images/collage-fl4.JPG">
+
+
+                                        <img src="images/collage-fl5.JPG">
+                                    </div>
+                                    <h3>Process in Bloom</h3>
+                                    <h4>2024</h4>
+                                    <p>
+                                        My artistic process often begins with collage, either in material
+                                        terms through
+                                        the combination of images, or in conceptual terms through the
+                                        juxtaposition
+                                        of
+                                        ideas. Exhibitions of my current body of work around botanical computing
+                                        include
+                                        collaborative wall drawing collages created with a group of participants
+                                        from
+                                        the local community. The collage materials are collections of images
+                                        that
+                                        inform
+                                        the work, alongside key texts on questions of plant-being.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='window window-default-tall' data-window id='window-draft-1'>
                     <div class='window-inside'>
                         <nav class='window-nav'>
                             <h2 class='label-draft-1-small'>
-                                <span>draft_1</span>
+                                <span>hand.jpg</span>
                             </h2>
                             <div class='buttons'>
                                 <label class='minimize' for='draft-1-minimize' tabindex='0'></label>
@@ -866,9 +926,12 @@
                             </div>
                         </nav>
                         <div class='window-content'>
-                            <div class='text-container above-footer'>
-                                <div class="text">
-                                    <p>Coming soon.</p>
+                            <div class='image-container above-footer'>
+                                <div class="image">
+                                    <figure>
+                                        <img src="images/hand.jpg">
+
+                                    </figure>
                                 </div>
                             </div>
                         </div>
@@ -937,7 +1000,7 @@
                 <li class='tab tab-draft-1' data-tab>
                     <span class='activate'></span>
                     <label class='label-draft-1-small' for='draft-1-minimize'>
-                        <span>draft_1</span>
+                        <span>hand.jpg</span>
                     </label>
                 </li>
                 <li class='tab tab-egg-1' data-tab>
@@ -956,6 +1019,12 @@
                     <span class='activate'></span>
                     <label class='label-egg-3-small' for='egg-3-minimize'>
                         <span>View-Master™</span>
+                    </label>
+                </li>
+                <li class='tab tab-egg-5' data-tab>
+                    <span class='activate'></span>
+                    <label class='label-egg-5-small' for='egg-5-minimize'>
+                        <span>Process in Bloom</span>
                     </label>
                 </li>
                 <li class='tab tab-egg-4' data-tab>

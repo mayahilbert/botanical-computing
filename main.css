@@ -107,6 +107,11 @@ p em {
     line-height: 1.5;
 }
 
+p.bitmap-font {
+    font-family: "Dina", monospace;
+
+}
+
 h2 {
     font-size: 1.3rem;
     margin: 0;
@@ -231,6 +236,12 @@ label[tabindex] span span {
     background-image: url("icons/SnailPlant_Icon.png");
     background-repeat: no-repeat;
 }
+
+.label-leaf:before {
+    background-image: url("icons/PlantLeaf_Icon.png");
+    background-repeat: no-repeat;
+}
+
 
 .button {
     box-shadow: inset -1.5px -1.5px 0 0 var(--black), inset 1.5px 1.5px 0 0 var(--white), inset -3px -3px 0 0 var(--interface-color-light), inset 3px 3px 0 0 var(--interface-color);
@@ -608,6 +619,16 @@ label[tabindex] span span {
     height: 40vh;
 }
 
+.window-default-tall .window-inside {
+    width: 50vw;
+    height: 82vh;
+    max-height: calc(100dvh - 70px);
+}
+
+#window-egg-5 img {
+    display: block;
+}
+
 .window-text .window-inside {
     width: 60vw;
     height: 75vh;
@@ -670,7 +691,8 @@ figure {
     cursor: pointer;
 }
 
-.image img {
+.image img,
+.images img {
     max-width: 100%;
     -ms-interpolation-mode: bicubic;
     image-rendering: auto;
@@ -678,11 +700,16 @@ figure {
     max-height: 60vh;
 }
 
+.images img {
+    margin-bottom: 1em;
+}
+
 .interactable-image {
     cursor: pointer;
 }
 
 figcaption {
+    font-family: "Dina", monospace;
     margin-top: 1rem;
 }
 
@@ -3009,6 +3036,7 @@ figcaption {
     opacity: 1;
     visibility: visible;
     z-index: 2;
+    filter: saturate(1.6) hue-rotate(280deg);
 }
 
 #egg-4:checked~main .tab-egg-4 {

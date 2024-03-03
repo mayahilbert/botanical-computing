@@ -141,7 +141,7 @@ timeContainer.onclick = function(){
 }
 
 const updateColors = () => {
-	let interfaceColor = "hsl("+(140-(hour*2))+","+(54+(hour*0.5))+"%,"+(50-(hour*0.6))+"%)";
+	let interfaceColor = "hsl("+(145-(hour*1.8))+","+(54+(hour*0.5))+"%,"+(50-(hour*0.6))+"%)";
 	body.style.backgroundImage = "linear-gradient(0deg, hsla(359, 98%, 22%,"+((hour-1)*0.02)+"), hsla(0, 93%, 24%,"+((hour-1)*0.035)+"), hsla(0, 95%, 24%,"+((hour-1)*0.04166)+"), hsla(0, 100%, 40%,"+((hour-1)*0.037)+")), url('images/silviakeyimage-2.png')"; 
 	root.style.setProperty('--interface-color', interfaceColor);
 }
@@ -236,7 +236,7 @@ let welcomeCounter = 0;
 welcomeFlowerTrigger.onclick = function(){
 	if(welcomeCounter==0){
 	body.appendChild(welcomeflower1);
-	welcomeFlowerTrigger.innerHTML = "close this welcome window and click around. Don't be shy!";
+	welcomeFlowerTrigger.innerHTML = "close this window and click around. Don't be shy!";
 		setTimeout(() => {  	
 			if (body.contains(welcomeflower1)) {
 				body.removeChild(welcomeflower1);}
