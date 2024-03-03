@@ -2,6 +2,7 @@ const windows =  [... document.querySelectorAll("[data-window]")];
 const triggers = [... document.querySelectorAll("[data-window-trigger]")];
 const errors = [... document.querySelectorAll("[data-error-trigger]")];
 const root = document.querySelector(':root');
+const welcomeWindow = document.querySelector('#window-welcome');;
 
 const desktop = document.querySelector("#icons");
 desktop.addEventListener("click", e => {
@@ -10,6 +11,10 @@ desktop.addEventListener("click", e => {
 	});
 });
 
+new Draggabilly(welcomeWindow, {
+	handle: ".window-nav h2",
+	containment: true
+});
 
 let order = 0;
 let layer = 10;
