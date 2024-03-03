@@ -241,7 +241,7 @@ let welcomeCounter = 0;
 welcomeFlowerTrigger.onclick = function(){
 	if(welcomeCounter==0){
 	body.appendChild(welcomeflower1);
-	welcomeFlowerTrigger.innerHTML = "close this window and click around. Don't be shy!";
+	welcomeFlowerTrigger.innerHTML = "click 'Close' and look around. Don't be shy!";
 		setTimeout(() => {  	
 			if (body.contains(welcomeflower1)) {
 				body.removeChild(welcomeflower1);}
