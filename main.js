@@ -298,3 +298,8 @@ updateBloom();
 setInterval(() => updateBloom(), 120000);
 
 
+const zoomableImage = document.querySelectorAll('.zoomable-image');
+zoomableImage.forEach((zoomableImage, index)=>{
+	zoomableImage.addEventListener("click", e => { if(zoomableImage.classList.contains("zoomed")){zoomableImage.classList.remove("zoomed")}else{zoomableImage.classList.add("zoomed");}
+});
+});

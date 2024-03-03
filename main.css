@@ -626,7 +626,7 @@ label[tabindex] span span {
 }
 
 .window-default-thin .window-inside {
-    width: 27vw;
+    width: 30vw;
     height: 80vh;
     min-width: 300px;
 }
@@ -713,6 +713,8 @@ figure {
 .interactable-image {
     cursor: pointer;
 }
+
+
 
 figcaption {
     font-family: "Dina", monospace;
@@ -4354,4 +4356,16 @@ input[id*=error-]:checked~main #alerts {
 
 .bold {
     font-weight: bold;
+}
+
+.zoomable-image {
+    cursor: zoom-in;
+}
+
+.zoomable-image.zoomed {
+    cursor: zoom-out;
+}
+
+img.zoomable-image.zoomed {
+    max-height: none;
 }
