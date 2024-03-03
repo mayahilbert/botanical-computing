@@ -625,6 +625,12 @@ label[tabindex] span span {
     max-height: calc(100dvh - 70px);
 }
 
+.window-default-thin .window-inside {
+    width: 27vw;
+    height: 80vh;
+    min-width: 300px;
+}
+
 #window-egg-5 img {
     display: block;
 }
