@@ -107,9 +107,20 @@ p em {
     line-height: 1.5;
 }
 
-p.bitmap-font {
+p.bitmap-font,
+a.bitmap-font {
     font-family: "Dina", monospace;
+}
 
+a.bitmap-font {
+    font-weight: bold;
+}
+
+a.download-link {
+    text-align: right;
+    width: 100%;
+    display: block;
+    margin-bottom: 1em;
 }
 
 h2 {
@@ -3952,7 +3963,7 @@ input[id*=error-]:checked~main #alerts {
     height: calc(100% - 3px - 40px - 36px);
 }
 
-#window-welcome .window-footer {
+.window-footer {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -3965,7 +3976,7 @@ input[id*=error-]:checked~main #alerts {
     padding-bottom: 1em;
 }
 
-#window-welcome .window-footer .button {
+.window-footer .button {
     box-shadow: inset -1.5px -1.5px 0 0 var(--black), inset 1.5px 1.5px 0 0 var(--interface-color-lighter), inset -3px -3px 0 0 var(--interface-color-darker), inset 3px 3px 0 0 var(--interface-color);
     padding-bottom: 1.5px;
     padding-right: 1.5px;
@@ -3981,7 +3992,7 @@ input[id*=error-]:checked~main #alerts {
 
 }
 
-#window-welcome .window-footer .button:active {
+.window-footer .button:active {
     box-shadow: inset -1.5px -1.5px 0 0 var(--white), inset 1.5px 1.5px 0 0 var(--black), inset -3px -3px 0 0 var(--interface-color), inset 3px 3px 0 0 var(--interface-color-light);
     outline: 1px dotted #263238;
     outline-width: 1px;
